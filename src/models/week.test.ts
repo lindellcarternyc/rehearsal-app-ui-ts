@@ -43,4 +43,22 @@ describe('Week', () => {
       expect(thisweek.days).toEqual(expectedDays)
     })
   })
+
+  describe('next week', () => {
+    it('should generate the next week', () => {
+      const m = moment()
+      const week1 = new Week(m)
+      const week2 = week1.nextWeek()
+      expect(week2).toEqual(new Week(moment(m).days(7)))
+    })
+  })
+
+  describe('previous week', () => {
+    it('should generate the next week', () => {
+      const mm = moment()
+      const week1 = new Week(mm)
+      const week2 = week1.previousWeek()
+      expect(week2).toEqual(new Week(moment(mm).days(-7)))
+    })
+  })
 })

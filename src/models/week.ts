@@ -44,4 +44,16 @@ export default class Week {
   get days(): Day[] {
     return this._days
   }
+
+  get start(): string {
+    const month = this.moment.format('MMM')
+    const date = this._days[0].date
+    return `${month} ${date}`
+  }
+
+  get end(): string {
+    const month = this.moment.format('MMM')
+    const date = this._days[6].date
+    return `${month} ${date}`
+  }
 }

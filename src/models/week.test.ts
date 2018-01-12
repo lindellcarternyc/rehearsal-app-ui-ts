@@ -61,4 +61,14 @@ describe('Week', () => {
       expect(week2).toEqual(new Week(moment(mm).days(-7)))
     })
   })
+
+  it('should correctly determine the start of the week', () => {
+    const week = new Week(moment())
+    expect(week.start).toBe('Jan 7')
+  })
+
+  it('should correctly determine the end of the week', () => {
+    const week = new Week(moment())
+    expect(week.end).toBe('Jan 13')
+  })
 })

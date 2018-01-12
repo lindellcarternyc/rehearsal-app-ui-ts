@@ -1,23 +1,29 @@
 import Week from './week'
+import * as moment from 'moment'
 
 describe('Week', () => {
-  it('should have 7 days', () => {
-    const w = new Week()
-    expect(w).toHaveProperty('days')
+  it('should accept a single parameter - `moment` object', () => {
+    expect(() => {
+      const _ = new Week(moment())
+    }).not.toThrow()
 
-    const days = w.days
-    expect(days).toHaveLength(7)
+    expect(() => {
+      const __ = new Week()
+    }).toThrow()
   })
 
-  const daynames = 'SMTWTFS'.split('')
-  const week = new Week()
-  const weekdays = week.days
+  describe('Week.initDays', () => {
+    it('should initialize days from a non Sunday', () => {
+      const f = moment().day(5) // Friday
+      const w = new Week(f)
+      const n = f.day()
+      expect(w.days[n].name).toBe('F')
+    })
 
-  daynames.forEach((name, idx) => {
-    it('should have have the name ' + name, () => {
-      const actualDay = weekdays[idx]
-      expect(actualDay).toHaveProperty('name')
-      expect(actualDay.name).toBe(name)
+    it('should initialize days from a Sunday', () => {
+      const s = moment().day(0)
+      const ww = new Week(s)
+      expect(ww.days[s.day()].name).toBe('S')
     })
   })
 })

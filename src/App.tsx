@@ -9,12 +9,16 @@ interface Props {
 
 }
 
-class App extends React.Component<Props> {
+interface State {
   week: Week
+}
 
+class App extends React.Component<Props, State> {
   constructor() {
     super({})
-    this.week = new Week(moment())
+    this.state = {
+      week: new Week(moment())
+    }
   }
 
   backCallback  = (): void => {
@@ -27,13 +31,14 @@ class App extends React.Component<Props> {
     console.dir(`DAY: ${num}`)
   }
   render() {
+    const { week } = this.state
     return (
       <div className='App'>
         <WeekPreviewBar 
           backCallback={this.backCallback}
           forwardCallback={this.forwardCallback}
           dayCallback={this.dayCallback}
-          week={this.week}
+          week={week}
         />
       </div>
     )

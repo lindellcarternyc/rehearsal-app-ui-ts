@@ -22,10 +22,12 @@ class App extends React.Component<Props, State> {
   }
 
   backCallback  = (): void => {
-    console.dir('BACK')
+    const week = this.state.week.previousWeek()
+    this.setState({week})
   }
   forwardCallback = (): void => {
-    console.dir('FORWARD')
+    const week = this.state.week.nextWeek()
+    this.setState({week})
   }
   dayCallback = (num: number): void => {
     console.dir(`DAY: ${num}`)

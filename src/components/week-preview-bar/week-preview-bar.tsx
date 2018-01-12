@@ -7,11 +7,8 @@ const dayPreviews = (
     callback: (num: Number) => void
   ): JSX.Element[] => {
   return 'SMTWTFS'.split('').map((day, num) => {
-    const didClick = (evt: React.SyntheticEvent<HTMLElement>) => {
-      callback(num)
-    }
     return (
-      <Menu.Item key={num} onClick={didClick}>
+      <Menu.Item key={num} onClick={() => {callback(num)}}>
         <WeekPreviewBarDay day={day} num={num + 1} />
       </Menu.Item>
     )

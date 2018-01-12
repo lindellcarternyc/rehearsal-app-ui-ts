@@ -18,6 +18,16 @@ export default class Week {
     this.initDays()
   }
 
+  nextWeek(): Week {
+    const nextMoment = moment(this.moment).days(7)
+    return new Week(nextMoment)
+  }
+
+  previousWeek(): Week {
+    const previousMoment = moment(this.moment).days(-7)
+    return new Week(previousMoment)
+  }
+
   private initDays() {
     let days: Day[] = []
 

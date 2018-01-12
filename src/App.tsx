@@ -2,8 +2,21 @@ import * as React from 'react'
 import './App.css'
 
 import { WeekPreviewBar } from './components'
+import Week from './models/week'
+import * as moment from 'moment'
 
-class App extends React.Component {
+interface Props {
+
+}
+
+class App extends React.Component<Props> {
+  week: Week
+
+  constructor() {
+    super({})
+    this.week = new Week(moment())
+  }
+
   backCallback  = (): void => {
     console.dir('BACK')
   }
@@ -20,6 +33,7 @@ class App extends React.Component {
           backCallback={this.backCallback}
           forwardCallback={this.forwardCallback}
           dayCallback={this.dayCallback}
+          week={this.week}
         />
       </div>
     )

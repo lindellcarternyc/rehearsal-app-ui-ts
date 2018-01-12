@@ -25,5 +25,20 @@ describe('Week', () => {
       const ww = new Week(s)
       expect(ww.days[s.day()].name).toBe('S')
     })
+
+    it('should provide the correct dates', () => {
+      // Friday 12
+      const dates = [7, 8, 9, 10, 11, 12, 13]
+      const expectedNames = 'SMTWTFS'.split('')
+      const expectedDays = dates.map((date, idx) => {
+        return {
+          name: expectedNames[idx],
+          date
+        }
+      })
+
+      const thisweek = new Week(moment())
+      expect(thisweek.days).toEqual(expectedDays)
+    })
   })
 })

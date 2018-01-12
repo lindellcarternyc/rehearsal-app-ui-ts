@@ -2,7 +2,7 @@ import * as moment from 'moment'
 
 interface Day {
   name: string
-  num: number
+  date: number
 }
 
 export default class Week {
@@ -24,8 +24,8 @@ export default class Week {
     for (let i = 0; i <= 6; i++) {
       let m = moment(this.moment).day(i)
       const name = m.format('dd').charAt(0)
-      const num = -1
-      days.push({name, num})
+      const date = m.date()
+      days.push({name, date})
     }
 
     this._days = days

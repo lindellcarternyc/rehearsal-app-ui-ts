@@ -32,6 +32,7 @@ class App extends React.Component<Props, State> {
   dayCallback = (num: number): void => {
     console.dir(`DAY: ${num}`)
   }
+  
   render() {
     const { week } = this.state
     return (

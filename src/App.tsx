@@ -1,7 +1,7 @@
 import * as React from 'react'
 import './App.css'
 
-import WeekPreviewBar from './components/week-preview-bar/week-preview-bar'
+import { WeekPreviewBar } from './components'
 
 class App extends React.Component {
   backCallback  = (): void => {

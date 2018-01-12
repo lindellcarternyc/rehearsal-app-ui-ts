@@ -1,0 +1,1 @@
+export const WeekPreviewBar = require('./week-preview-bar').default

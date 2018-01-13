@@ -5,7 +5,7 @@ import { Container } from 'semantic-ui-react'
 import Week from '../../models/week'
 
 export interface SchedulePreviewProps {
-  week?: Week
+  week: Week
 }
 
 const SchedulePreview = (props: SchedulePreviewProps): JSX.Element => {

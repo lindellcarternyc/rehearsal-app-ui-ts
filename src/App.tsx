@@ -3,8 +3,13 @@ import './App.css'
 
 import { WeekPreviewBar } from './components'
 import Week from './models/week'
+import Day from './models/day'
 import * as moment from 'moment'
 import SchedulePreviewModel from './models/schedule-preview'
+import RehearsalPreviewModel from './models/rehersal-preview-model'
+
+const mockDay = new Day(moment('1-12-2018', 'MM-DD-YYYY'))
+const mockRehearsal = new RehearsalPreviewModel(mockDay)
 
 import SchedulePreview from './components/schedule-preview/schedule-preview'
 
@@ -28,15 +33,23 @@ class App extends React.Component<Props, State> {
     }
   }
 
-  backCallback  = (): void => {
-    const week = this.state.week.previousWeek()
-    const schedulePreview = new SchedulePreviewModel(week, [])
+  update(week: Week) {
+    let rehearsalList: RehearsalPreviewModel[] = []
+    if (week.start === 'Jan 7') {
+      rehearsalList.push(mockRehearsal)
+    }
+    const schedulePreview = new SchedulePreviewModel(week, rehearsalList)
     this.setState({week, schedulePreview})
   }
+
+  backCallback  = (): void => {
+    const { week } = this.state
+    this.update(week.previousWeek())
+  }
+
   forwardCallback = (): void => {
-    const week = this.state.week.nextWeek()
-    const schedulePreview = new SchedulePreviewModel(week, [])
-    this.setState({week, schedulePreview})
+    const { week } = this.state
+    this.update(week.nextWeek())
   }
   dayCallback = (num: number): void => {
     console.dir(`DAY: ${num}`)

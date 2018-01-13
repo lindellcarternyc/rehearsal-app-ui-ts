@@ -6,8 +6,10 @@ describe('SchedulePreview', () => {
   it('must have a week and rehearsal list', () => {
     const m = moment('1-12-18', 'MM-DD-YY')
     const w = new Week(m)
+    const rehearsalList: string[] = []
   
-    const preview = new SchedulePreview(w)
-    expect(preview).not.toBeUndefined()
+    const preview = new SchedulePreview(w, rehearsalList)
+    expect(preview).toHaveProperty('week', w)
+    expect(preview).toHaveProperty('rehearsalList', rehearsalList)
   })
 })

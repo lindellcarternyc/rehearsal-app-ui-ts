@@ -4,39 +4,49 @@ import Week from '../../models/week'
 import RehearsalPreviewModel from '../../models/rehersal-preview-model'
 
 import { List } from 'semantic-ui-react'
+import RehearsalPreviewListItem from '../rehearsal-preview-list-item/rehearsal-preview-list-item'
 
 export interface RehearsalPreviewListProps {
   week: Week
   rehearsals: RehearsalPreviewModel[]
 }
 
+const Items = (rehearsals: RehearsalPreviewModel[]): JSX.Element[] => {
+  return rehearsals.map(rehearsal => {
+    const startTime = rehearsal.startTime.format('HH:mm')
+    const endTime = rehearsal.endTime.format('HH:mm')
+    return (
+      <RehearsalPreviewListItem
+        key={startTime}
+        startTime={startTime}
+        endTime={endTime}
+      />
+    )
+  })
+}
+
+const createContent = (rehearsals: RehearsalPreviewModel[]): JSX.Element | string => {
+  if (rehearsals.length === 0) {
+    return 'No Rehearsals'
+  } else {
+    return (
+      <List bulleted>
+        {Items(rehearsals)}
+      </List>
+    )
+  }
+}
+
 const days = (week: Week, rehearsals: RehearsalPreviewModel[] = []): JSX.Element[] => {
   return week.days.map(day => {
-    // const dayRehearsals = rehearsals.filter(rehearsal => {
-    //   return rehearsal.day.date === day.date
-    // }).map(rehearsal => {
-    //   return rehearsal.day.name
-    // })
-    const numRehearsals = rehearsals.filter(rehearsal => {
-      return rehearsal.day.date === day.date
-    }).length
+    const dayRehearsalList = rehearsals.filter(r => r.day.date === day.date)
+    const content = createContent(dayRehearsalList)
     return (
       <List.Item key={day.date}>
         <List.Header>
           {day.moment.format('ddd, MMMM D')}
         </List.Header>
-        {/* TOO
-          MOCK Rehearsal schedules
-        */}
-        {numRehearsals === 0 && 
-          'No Rehearsal'
-        }
-        {numRehearsals === 1 &&
-          '1 rehearsal'
-        }
-        {numRehearsals > 1 &&
-          `${numRehearsals} rehearsals`
-        }
+        {content}
       </List.Item>
     )
   })

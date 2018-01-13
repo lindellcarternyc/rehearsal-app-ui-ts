@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 import { Container, Header } from 'semantic-ui-react'
+import RehearsalPreviewList from '../rehearsal-preview-list/rehearsal-preview-list'
 
 import SchedulePreviewModel from '../../models/schedule-preview'
 
@@ -18,9 +19,7 @@ const SchedulePreview = (props: SchedulePreviewProps): JSX.Element => {
         <p>No rehearsals {week.start} - {week.end}</p>
       }
       {rehearsalList.length > 0 &&
-        <p>
-          {JSON.stringify(week, null, 4)}
-        </p>
+        <RehearsalPreviewList week={week} rehearsals={rehearsalList} />
       }
     </Container>
   )

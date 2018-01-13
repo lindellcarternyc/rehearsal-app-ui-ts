@@ -25,8 +25,8 @@ interface State {
 class App extends React.Component<Props, State> {
   constructor() {
     super({})
-    const week = new Week(moment())
-    const preview = new SchedulePreviewModel(week, [])
+    const week = new Week(mockDay.moment)
+    const preview = new SchedulePreviewModel(week, [mockRehearsal])
     this.state = {
       week,
       schedulePreview: preview

@@ -35,7 +35,7 @@ interface WeekPreviewBarProps {
 const WeekPreviewBar = (props: WeekPreviewBarProps): JSX.Element => {
   const { backCallback, forwardCallback, dayCallback, week } = props
   return (
-    <Menu fluid widths={9}>
+    <Menu fluid widths={9} fixed='top'>
       <Menu.Item onClick={backCallback}>
         <Icon name='chevron left' />
       </Menu.Item>

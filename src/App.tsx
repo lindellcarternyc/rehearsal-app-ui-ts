@@ -11,8 +11,13 @@ import RehearsalPreviewModel from './models/rehersal-preview-model'
 const mockDay = new Day(moment('1-12-2018', 'MM-DD-YYYY'))
 const mockRehearsal = new RehearsalPreviewModel(mockDay)
 
-const mockDay2 = new Day(moment('1-19-2018', 'MM-DD-YYYY'))
-const mockReharsals2 = [new RehearsalPreviewModel(mockDay2), new RehearsalPreviewModel(mockDay2)]
+const mockDay2 = new Day(moment('1-14-2018', 'MM-DD-YYYY'))
+const mockDay3 = new Day(moment('1-15-2018', 'MM-DD-YYYY'))
+const mockReharsals2 = [
+  new RehearsalPreviewModel(mockDay2), 
+  new RehearsalPreviewModel(mockDay2), 
+  new RehearsalPreviewModel(mockDay3)
+]
 
 import SchedulePreview from './components/schedule-preview/schedule-preview'
 

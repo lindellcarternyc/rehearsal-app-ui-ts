@@ -46,7 +46,7 @@ export default class Week {
   }
 
   get start(): string {
-    const day = this._days[0]
+    const day = this.days[0]
     const month = day.moment.format('MMM')
     const date = day.date
 
@@ -55,7 +55,7 @@ export default class Week {
 
   get end(): string {
     const month = this.moment.format('MMM')
-    const date = this._days[6].date
+    const date = this.days[6].date
     return `${month} ${date}`
   }
 }

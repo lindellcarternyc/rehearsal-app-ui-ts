@@ -12,21 +12,30 @@ export interface RehearsalPreviewListProps {
 
 const days = (week: Week, rehearsals: RehearsalPreviewModel[] = []): JSX.Element[] => {
   return week.days.map(day => {
-    const dayRehearsals = rehearsals.filter(rehearsal => {
+    // const dayRehearsals = rehearsals.filter(rehearsal => {
+    //   return rehearsal.day.date === day.date
+    // }).map(rehearsal => {
+    //   return rehearsal.day.name
+    // })
+    const numRehearsals = rehearsals.filter(rehearsal => {
       return rehearsal.day.date === day.date
-    }).map(rehearsal => {
-      return rehearsal.day.name
-    })
+    }).length
     return (
       <List.Item key={day.date}>
         <List.Header>
           {day.moment.format('ddd, MMMM D')}
         </List.Header>
-        {dayRehearsals.length === 0 && 
+        {/* TOO
+          MOCK Rehearsal schedules
+        */}
+        {numRehearsals === 0 && 
           'No Rehearsal'
         }
-        {dayRehearsals.length > 0 &&
-          dayRehearsals
+        {numRehearsals === 1 &&
+          '1 rehearsal'
+        }
+        {numRehearsals > 1 &&
+          `${numRehearsals} rehearsals`
         }
       </List.Item>
     )

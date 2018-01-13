@@ -11,6 +11,9 @@ import RehearsalPreviewModel from './models/rehersal-preview-model'
 const mockDay = new Day(moment('1-12-2018', 'MM-DD-YYYY'))
 const mockRehearsal = new RehearsalPreviewModel(mockDay)
 
+const mockDay2 = new Day(moment('1-19-2018', 'MM-DD-YYYY'))
+const mockReharsals2 = [new RehearsalPreviewModel(mockDay2), new RehearsalPreviewModel(mockDay2)]
+
 import SchedulePreview from './components/schedule-preview/schedule-preview'
 
 interface Props {
@@ -37,6 +40,8 @@ class App extends React.Component<Props, State> {
     let rehearsalList: RehearsalPreviewModel[] = []
     if (week.start === 'Jan 7') {
       rehearsalList.push(mockRehearsal)
+    } else if (week.start === 'Jan 14') {
+      rehearsalList = mockReharsals2
     }
     const schedulePreview = new SchedulePreviewModel(week, rehearsalList)
     this.setState({week, schedulePreview})

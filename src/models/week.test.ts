@@ -49,7 +49,7 @@ describe('Week', () => {
       const m = moment()
       const week1 = new Week(m)
       const week2 = week1.nextWeek()
-      expect(week2).toEqual(new Week(moment(m).days(7)))
+      expect(week2).toEqual(new Week(moment(m).week(m.week() + 1)))
     })
   })
 
@@ -58,7 +58,7 @@ describe('Week', () => {
       const mm = moment()
       const week1 = new Week(mm)
       const week2 = week1.previousWeek()
-      expect(week2).toEqual(new Week(moment(mm).days(-7)))
+      expect(week2).toEqual(new Week(moment(mm).week(mm.week() - 1)))
     })
   })
 

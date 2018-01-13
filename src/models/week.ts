@@ -19,12 +19,12 @@ export default class Week {
   }
 
   nextWeek(): Week {
-    const nextMoment = moment(this.moment).days(7)
+    const nextMoment = moment(this.moment).week(this.moment.week() + 1)
     return new Week(nextMoment)
   }
 
   previousWeek(): Week {
-    const previousMoment = moment(this.moment).days(-7)
+    const previousMoment = moment(this.moment).week(this.moment.week() - 1)
     return new Week(previousMoment)
   }
 

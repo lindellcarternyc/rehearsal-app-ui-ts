@@ -9,14 +9,24 @@ import SchedulePreviewModel from './models/schedule-preview'
 import RehearsalPreviewModel from './models/rehersal-preview-model'
 
 const mockDay = new Day(moment('1-12-2018', 'MM-DD-YYYY'))
-const mockRehearsal = new RehearsalPreviewModel(mockDay)
+const mockStart1 = moment('1-12-2018 9:00', 'MM-DD-YYYY HH:mm')
+const mockEnd1 = moment('1-12-2018 12:00', 'MM-DD-YYYY HH:mm')
+const mockRehearsal = new RehearsalPreviewModel(mockDay, mockStart1, mockEnd1)
 
 const mockDay2 = new Day(moment('1-14-2018', 'MM-DD-YYYY'))
+const mockStart2 = moment('1-14-2018 9:00', 'MM-DD-YYYY HH:mm')
+const mockEnd2 = moment('1-14-2018 12:00', 'MM-DD-YYYY HH:mm')
+const mockStart22 = moment('1-14-2018 15:00', 'MM-DD-YYYY HH:mm')
+const mockEnd22 = moment('1-14-2018 19:00', 'MM-DD-YYYY HH:mm')
+
 const mockDay3 = new Day(moment('1-15-2018', 'MM-DD-YYYY'))
+const mockStart3 = moment('1-15-2018 8:00', 'MM-DD-YYYY HH:mm')
+const mockEnd3 = moment('1-15-2018 14:00', 'MM-DD-YYYY HH:mm')
+
 const mockReharsals2 = [
-  new RehearsalPreviewModel(mockDay2), 
-  new RehearsalPreviewModel(mockDay2), 
-  new RehearsalPreviewModel(mockDay3)
+  new RehearsalPreviewModel(mockDay2, mockStart2, mockEnd2), 
+  new RehearsalPreviewModel(mockDay2, mockStart22, mockEnd22), 
+  new RehearsalPreviewModel(mockDay3, mockStart3, mockEnd3)
 ]
 
 import SchedulePreview from './components/schedule-preview/schedule-preview'

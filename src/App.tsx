@@ -43,6 +43,8 @@ class App extends React.Component<Props, State> {
           dayCallback={this.dayCallback}
           week={week}
         />
+        <p>{week.start}</p>
+        <p>{week.end}</p>
       </div>
     )
   }

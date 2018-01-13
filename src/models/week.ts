@@ -1,9 +1,11 @@
 import * as moment from 'moment'
 
-interface Day {
-  name: string
-  date: number
-}
+// interface Day {
+//   name: string
+//   date: number
+// }
+
+import Day from './day'
 
 export default class Week {
   readonly moment: moment.Moment
@@ -19,12 +21,12 @@ export default class Week {
   }
 
   nextWeek(): Week {
-    const nextMoment = moment(this.moment).days(7)
+    const nextMoment = moment(this.moment).week(this.moment.week() + 1)
     return new Week(nextMoment)
   }
 
   previousWeek(): Week {
-    const previousMoment = moment(this.moment).days(-7)
+    const previousMoment = moment(this.moment).week(this.moment.week() - 1)
     return new Week(previousMoment)
   }
 
@@ -33,9 +35,7 @@ export default class Week {
 
     for (let i = 0; i <= 6; i++) {
       let m = moment(this.moment).day(i)
-      const name = m.format('dd').charAt(0)
-      const date = m.date()
-      days.push({name, date})
+      days.push(new Day(m))
     }
 
     this._days = days
@@ -43,5 +43,19 @@ export default class Week {
 
   get days(): Day[] {
     return this._days
+  }
+
+  get start(): string {
+    const day = this._days[0]
+    const month = day.moment.format('MMM')
+    const date = day.date
+
+    return `${month} ${date}`
+  }
+
+  get end(): string {
+    const month = this.moment.format('MMM')
+    const date = this._days[6].date
+    return `${month} ${date}`
   }
 }

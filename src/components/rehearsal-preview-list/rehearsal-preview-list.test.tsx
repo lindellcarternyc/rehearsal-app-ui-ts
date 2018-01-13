@@ -11,7 +11,8 @@ import RehearsalPreviewList, { RehearsalPreviewListProps } from './rehearsal-pre
 describe('RehearsalPreviewList', () => {
   it('must have a week', () => {
     const props: RehearsalPreviewListProps = {
-      week: w
+      week: w, 
+      rehearsals: [] 
     }
     const div = document.createElement('div')
     ReactDOM.render(

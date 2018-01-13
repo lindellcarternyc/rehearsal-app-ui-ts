@@ -5,6 +5,8 @@ import { WeekPreviewBar } from './components'
 import Week from './models/week'
 import * as moment from 'moment'
 
+import SchedulePreview from './components/schedule-preview/schedule-preview'
+
 interface Props {
 
 }
@@ -45,6 +47,7 @@ class App extends React.Component<Props, State> {
         />
         <p>{week.start}</p>
         <p>{week.end}</p>
+        <SchedulePreview week={week}/>
       </div>
     )
   }

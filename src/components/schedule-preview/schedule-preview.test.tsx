@@ -6,13 +6,14 @@ import SchedulePreview from './schedule-preview'
 import { SchedulePreviewProps } from './schedule-preview'
 import Week from '../../models/week'
 import * as moment from 'moment'
+import SchedulePreviewModel from '../../models/schedule-preview'
 
 describe('SchedulePreview', () => {
   it('should render without crashing', () => {
     const div = document.createElement('div')
 
     const props: SchedulePreviewProps = {
-      week: new Week(moment())
+      model: new SchedulePreviewModel(new Week(moment()), [])
     }
     ReactDOM.render(
       <SchedulePreview {...props}/>,

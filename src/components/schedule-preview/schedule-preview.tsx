@@ -1,21 +1,27 @@
 import * as React from 'react'
 
-import { Container } from 'semantic-ui-react'
+import { Container, Header } from 'semantic-ui-react'
 
-import Week from '../../models/week'
+import SchedulePreviewModel from '../../models/schedule-preview'
 
 export interface SchedulePreviewProps {
-  week: Week
+  model: SchedulePreviewModel
 }
 
 const SchedulePreview = (props: SchedulePreviewProps): JSX.Element => {
-  const { week } = props
+  const { model } = props
+  const { week, rehearsalList } = model
   return (
     <Container text>
-      Schedule preview
-      <p>
-        {JSON.stringify(week, null, 4)}
-      </p>
+      <Header as='h3'>Schedule Preview</Header>
+      {rehearsalList.length === 0 && 
+        <p>No rehearsals {week.start} - {week.end}</p>
+      }
+      {rehearsalList.length > 0 &&
+        <p>
+          {JSON.stringify(week, null, 4)}
+        </p>
+      }
     </Container>
   )
 }

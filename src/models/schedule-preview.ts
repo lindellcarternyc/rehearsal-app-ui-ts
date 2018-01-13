@@ -1,6 +1,6 @@
 import Week from './week'
 
-export default class SchedulePreview {
+export default class SchedulePreviewModel {
   readonly week: Week
   readonly rehearsalList: string[]
 

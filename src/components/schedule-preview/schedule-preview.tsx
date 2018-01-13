@@ -9,11 +9,15 @@ export interface SchedulePreviewProps {
   model: SchedulePreviewModel
 }
 
+const ContainerStyles = {
+  paddingTop: '6rem'
+}
+
 const SchedulePreview = (props: SchedulePreviewProps): JSX.Element => {
   const { model } = props
   const { week, rehearsalList } = model
   return (
-    <Container text>
+    <Container text style={ContainerStyles}>
       <Header as='h3'>Schedule Preview</Header>
       {rehearsalList.length === 0 && 
         <p>No rehearsals {week.start} - {week.end}</p>

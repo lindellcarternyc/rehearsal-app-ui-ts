@@ -1,9 +1,11 @@
 import * as moment from 'moment'
 
-interface Day {
-  name: string
-  date: number
-}
+// interface Day {
+//   name: string
+//   date: number
+// }
+
+import Day from './day'
 
 export default class Week {
   readonly moment: moment.Moment
@@ -33,9 +35,7 @@ export default class Week {
 
     for (let i = 0; i <= 6; i++) {
       let m = moment(this.moment).day(i)
-      const name = m.format('dd').charAt(0)
-      const date = m.date()
-      days.push({name, date})
+      days.push(new Day(m))
     }
 
     this._days = days
@@ -46,8 +46,10 @@ export default class Week {
   }
 
   get start(): string {
-    const month = this.moment.format('MMM')
-    const date = this._days[0].date
+    const day = this._days[0]
+    const month = day.moment.format('MMM')
+    const date = day.date
+
     return `${month} ${date}`
   }
 

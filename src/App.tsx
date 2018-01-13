@@ -46,7 +46,7 @@ class App extends React.Component<Props, State> {
         />
         <p>{week.start}</p>
         <p>{week.end}</p>
-        <SchedulePreview />
+        <SchedulePreview week={week}/>
       </div>
     )
   }

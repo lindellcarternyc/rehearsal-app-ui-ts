@@ -1,10 +1,11 @@
 import Week from './week'
+import RehearsalPreviewModel from './rehersal-preview-model'
 
 export default class SchedulePreviewModel {
   readonly week: Week
-  readonly rehearsalList: string[]
+  readonly rehearsalList: RehearsalPreviewModel[]
 
-  constructor(w: Week, rehearsalList: string[]) {
+  constructor(w: Week, rehearsalList: RehearsalPreviewModel[]) {
     this.week = w
     this.rehearsalList = rehearsalList
   }

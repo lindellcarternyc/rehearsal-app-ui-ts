@@ -3,6 +3,9 @@
 # dependencies
 /node_modules
 
+#create react app artifacts
+_README.md
+
 # testing
 /coverage
 

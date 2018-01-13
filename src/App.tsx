@@ -4,6 +4,7 @@ import './App.css'
 import { WeekPreviewBar } from './components'
 import Week from './models/week'
 import * as moment from 'moment'
+import SchedulePreviewModel from './models/schedule-preview'
 
 import SchedulePreview from './components/schedule-preview/schedule-preview'
 
@@ -13,29 +14,35 @@ interface Props {
 
 interface State {
   week: Week
+  schedulePreview: SchedulePreviewModel
 }
 
 class App extends React.Component<Props, State> {
   constructor() {
     super({})
+    const week = new Week(moment())
+    const preview = new SchedulePreviewModel(week, [])
     this.state = {
-      week: new Week(moment())
+      week,
+      schedulePreview: preview
     }
   }
 
   backCallback  = (): void => {
     const week = this.state.week.previousWeek()
-    this.setState({week})
+    const schedulePreview = new SchedulePreviewModel(week, [])
+    this.setState({week, schedulePreview})
   }
   forwardCallback = (): void => {
     const week = this.state.week.nextWeek()
-    this.setState({week})
+    const schedulePreview = new SchedulePreviewModel(week, [])
+    this.setState({week, schedulePreview})
   }
   dayCallback = (num: number): void => {
     console.dir(`DAY: ${num}`)
   }
   render() {
-    const { week } = this.state
+    const { week, schedulePreview } = this.state
     return (
       <div className='App'>
         <WeekPreviewBar 
@@ -44,7 +51,7 @@ class App extends React.Component<Props, State> {
           dayCallback={this.dayCallback}
           week={week}
         />
-        <SchedulePreview week={week}/>
+        <SchedulePreview model={schedulePreview}/>
       </div>
     )
   }

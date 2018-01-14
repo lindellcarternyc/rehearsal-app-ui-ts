@@ -1,14 +1,16 @@
 import * as moment from 'moment'
 
+import RehearsalModel from './rehearsal-model'
+
 export default class Day {
   readonly date: number
   readonly month: number
   readonly year: number
   readonly name: string
   readonly moment: moment.Moment
-  rehearsals: string[]
+  rehearsals: RehearsalModel[]
 
-  constructor(m: moment.Moment) {
+  constructor(m: moment.Moment, rehearsals: RehearsalModel[] = []) {
     this.date = m.date()
     this.month = m.month()
     this.year = m.year()

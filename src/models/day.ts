@@ -6,6 +6,7 @@ export default class Day {
   readonly year: number
   readonly name: string
   readonly moment: moment.Moment
+  rehearsals: string[]
 
   constructor(m: moment.Moment) {
     this.date = m.date()
@@ -13,5 +14,6 @@ export default class Day {
     this.year = m.year()
     this.name = m.format('dd').charAt(0)
     this.moment = m
+    this.rehearsals = []
   }
 }

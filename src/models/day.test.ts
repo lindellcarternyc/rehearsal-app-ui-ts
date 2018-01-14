@@ -20,4 +20,11 @@ describe('Day', () => {
     expect(day.year).toBe(2018)
     expect(day.name).toBe('F')
   })
+
+  describe('Day.rehearsals', () => {
+    it('should be an array', () => {
+      const day = new Day(testDay)
+      expect(day).toHaveProperty('rehearsals', [])
+    })
+  })
 })

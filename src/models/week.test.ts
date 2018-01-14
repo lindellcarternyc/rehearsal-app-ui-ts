@@ -31,8 +31,10 @@ describe('Week', () => {
 
     it('should provide the correct dates', () => {
       // Friday January 12, 2018
+      const testMoment = moment('1-12-2018', 'MM-DD-YYYY')
       const dates = [7, 8, 9, 10, 11, 12, 13]
       // const expectedNames = 'SMTWTFS'.split('')
+
       const expectedDays = dates.map(dateNum => {
         const day = new Day(moment(`1-${dateNum}-2018`, 'MM-DD-YYYY'))
         const { date, month, name, year } = day
@@ -41,7 +43,7 @@ describe('Week', () => {
         }
       })
 
-      const thisweek = new Week(moment())
+      const thisweek = new Week(testMoment)
       const actualDays = thisweek.days.map(day => {
         const { date, month, name, year } = day
         return {
@@ -72,14 +74,14 @@ describe('Week', () => {
   })
 
   it('should correctly determine the start of the week', () => {
-    const week = new Week(moment())
+    const week = new Week(moment('1-12-2018', 'MM-DD-YYYY'))
     // const expectedStartDay = new Day(moment('1-7-2018', 'MM-DD-YYYY'))
     const expectedStartString = 'Jan 7'
     expect(week.start).toBe(expectedStartString)
   })
 
   it('should correctly determine the end of the week', () => {
-    const week = new Week(moment())
+    const week = new Week(moment('1-12-2018', 'MM-DD-YYYY'))
     expect(week.end).toBe('Jan 13')
   })
 })

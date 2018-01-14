@@ -1,6 +1,6 @@
 import * as React from 'react'
 import './App.css'
-import { WeekViewComponent } from './components/week-view/week-view-component';
+import { WeekViewComponent } from './components/week-view/week-view-component'
 
 interface Props {
 

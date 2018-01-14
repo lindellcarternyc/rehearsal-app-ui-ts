@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WeekViewBarItem renders correctly with rehearsals 1`] = `
+<div
+  className="item"
+  onClick={[Function]}
+>
+  <h3
+    align="center"
+    className="ui header"
+  >
+    <div
+      className="sub header"
+    >
+      T
+    </div>
+    16
+  </h3>
+  <div>
+    <i
+      aria-hidden="true"
+      className="circle tiny icon"
+    />
+  </div>
+</div>
+`;
+
+exports[`WeekViewBarItem renders correctly without rehearsals 1`] = `
+<div
+  className="item"
+  onClick={[Function]}
+>
+  <h3
+    align="center"
+    className="ui header"
+  >
+    <div
+      className="sub header"
+    >
+      S
+    </div>
+    14
+  </h3>
+</div>
+`;

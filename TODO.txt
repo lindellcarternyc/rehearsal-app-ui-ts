@@ -1,0 +1,5 @@
+TODO:
+
+Refactor models
+1. Make a clean rehearsal model
+2. Use that cleaner model

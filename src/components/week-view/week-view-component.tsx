@@ -19,11 +19,18 @@ export const WeekViewComponent = (props: WeekViewComponentProps): JSX.Element =>
     const hasRehearsals = day.times !== undefined && day.times.length > 0
     return { dayName, dayNumber, hasRehearsals }
   })
+
+  const numRehearsalDays = props.days.filter(day => day.times !== undefined).length
   return (
     <div>
       <WeekViewBar days={barDays}/>
       <Container style={{paddingTop: '6rem'}} text>
-        <WeekViewList days={props.days}/>
+        {numRehearsalDays > 0 && 
+          <WeekViewList days={props.days}/>
+        }
+        {numRehearsalDays === 0 &&
+          'No Rehearsals'
+        }
       </Container>
     </div>
   )

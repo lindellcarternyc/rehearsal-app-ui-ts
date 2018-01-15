@@ -1,6 +1,6 @@
-import { WeekViewComponentProps } from '../../components/week-view/week-view-component'
+import { WeekViewComponentData } from '../../components/week-view/week-view-component'
 
-const WEEK_2: WeekViewComponentProps = {
+const WEEK_2: WeekViewComponentData = {
   days: [
     {
       date: 'Sun, January 21'

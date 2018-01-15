@@ -10,38 +10,40 @@ interface State {
   week: number
 }
 
-import WEEK_1 from './mocks/data/week1'
-import WEEK_2 from './mocks/data/week2'
+import WEEKS from './mocks/data/weeks'
 
 class App extends React.Component<Props, State> {
   constructor() {
     super({})
     this.state = {
-      week: 1
+      week: 0
     }
   }
 
   next = () => {
-    if (this.state.week === 1) {
-      this.setState({week: 2})
+    let week = this.state.week + 1
+    if (week >= WEEKS.length) {
+      week = 0
     }
+    this.setState({week})
   }
 
   previous = () => {
-    if (this.state.week === 2) {
-      this.setState({week: 1})
+    let week = this.state.week - 1
+    if (week < 0) {
+      week = WEEKS.length - 1
     }
+    this.setState({week})
   }
   
   render() {
-    const week = this.state.week === 1 ? 
-      WEEK_1 : WEEK_2
+    const week = WEEKS[this.state.week]
     const days = week.days
     return (
       <WeekViewComponent 
         days={days}
-        previous={() => console.dir('p')}
-        next={() => {console.dir('n')}}
+        previous={this.previous}
+        next={this.next}
       />
     )
   }

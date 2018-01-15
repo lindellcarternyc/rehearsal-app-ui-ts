@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WeekViewRehearsalListItem should correctly render the rehearsal time 1`] = `
+<div
+  className="item"
+  data-value={undefined}
+  onClick={[Function]}
+  role="listitem"
+>
+  12:00 - 16:00
+</div>
+`;

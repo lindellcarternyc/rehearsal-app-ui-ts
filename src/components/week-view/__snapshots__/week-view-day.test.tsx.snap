@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WeekViewDay renders correctly if there are no rehearsals 1`] = `
+<div
+  className="item"
+  data-value={undefined}
+  onClick={[Function]}
+  role="listitem"
+>
+  <div
+    className="header"
+  >
+    Sun, January 14
+  </div>
+  No Rehearsals
+</div>
+`;
+
+exports[`WeekViewDay renders correctly with one rehearsal 1`] = `
+<div
+  className="item"
+  data-value={undefined}
+  onClick={[Function]}
+  role="listitem"
+>
+  <div
+    className="header"
+  >
+    Tue, January 16
+  </div>
+  <div
+    className="ui bulleted list"
+    role="list"
+  >
+    <div
+      className="item"
+      data-value={undefined}
+      onClick={[Function]}
+      role="listitem"
+    >
+      19:00 - 22:00
+    </div>
+  </div>
+</div>
+`;
+
+exports[`WeekViewDay renders correctly with two rehearsals 1`] = `
+<div
+  className="item"
+  data-value={undefined}
+  onClick={[Function]}
+  role="listitem"
+>
+  <div
+    className="header"
+  >
+    Sat, January 20
+  </div>
+  <div
+    className="ui bulleted list"
+    role="list"
+  >
+    <div
+      className="item"
+      data-value={undefined}
+      onClick={[Function]}
+      role="listitem"
+    >
+      13:00 - 14:30
+    </div>
+    <div
+      className="item"
+      data-value={undefined}
+      onClick={[Function]}
+      role="listitem"
+    >
+      14:30 - 16:00
+    </div>
+  </div>
+</div>
+`;

@@ -4,24 +4,29 @@ import WeekViewRehearsalList from './week-view-rehearsal-list'
 
 describe('WeekViewRehearsalList', () => {
   it('renders a list of one rehearsal', () => {
-    const times = ['12:00 - 16:00']
+    const rehearsals = [
+      {time: '12:00 - 16:00', material: ''}
+    ]
     const tree = renderer.create(
-      <WeekViewRehearsalList times={times} />
+      <WeekViewRehearsalList rehearsals={rehearsals} />
     )
     expect(tree).toMatchSnapshot()
   })
 
   it('renders a list of multiple rehearsals', () => {
-    const times = ['12:00 - 14:30', '14:30 - 16:00']
+    const rehearsals = [
+      {time: '12:00 - 14:30', material: ''},
+      {time: '14:30 - 16:00', material: ''}
+    ]
     const tree = renderer.create(
-      <WeekViewRehearsalList times={times} />
+      <WeekViewRehearsalList rehearsals={rehearsals} />
     )
     expect(tree).toMatchSnapshot()
   })
 
   it('renders nothing if there are no rehearsals', () => {
     const tree = renderer.create(
-      <WeekViewRehearsalList times={[]} />
+      <WeekViewRehearsalList rehearsals={[]} />
     )
     expect(tree).toMatchSnapshot()
   })

@@ -6,13 +6,13 @@ export interface DayViewComponentProps {
   date: string
   rehearsals: {time: string, material: string}[]
   onClick: () => void
-  selectRehearsal: (date: string, time: string, material: string) => void
+  selectRehearsal: (rehearsalNum: number) => void
 }
 
 const DayViewComponent = (props: DayViewComponentProps): JSX.Element => {
-  const rehearsalComponents = props.rehearsals.map(rehearsal => {
+  const rehearsalComponents = props.rehearsals.map((rehearsal, idx) => {
     const selectRehearsal = () => {
-      props.selectRehearsal(props.date, rehearsal.time, rehearsal.material)
+      props.selectRehearsal(idx)
     }
     return (
       <Segment key={rehearsal.time}>

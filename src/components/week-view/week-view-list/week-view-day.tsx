@@ -5,14 +5,14 @@ import WeekViewRehearsalList from './week-view-rehearsal-list'
 
 export interface WeekViewDayProps {
   date: string
-  times?: string[]
+  rehearsals?: {time: string, material: string}[]
 }
 
 const WeekViewDay = (props: WeekViewDayProps) => {
   let content: React.ReactNode
-  if (props.times !== undefined) {
-    const times = props.times
-    content = (<WeekViewRehearsalList times={times}/>)
+  if (props.rehearsals !== undefined) {
+    const rehearsals = props.rehearsals!
+    content = (<WeekViewRehearsalList rehearsals={rehearsals}/>)
   } else {
     content = 'No Rehearsals'
   }

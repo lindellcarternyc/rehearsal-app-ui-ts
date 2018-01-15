@@ -4,11 +4,19 @@ import { List } from 'semantic-ui-react'
 
 import WeekViewRehearsalListItem from './week-view-rehearsal-list-item'
 
-const WeekViewRehearsalList = (props: {times: string[]}): JSX.Element | null => {
-  if (props.times.length === 0) {
+export interface WeekViewRehearsalListProps {
+  rehearsals: {
+    time: string,
+    material: string
+  }[]
+}
+
+const WeekViewRehearsalList = (props: WeekViewRehearsalListProps): JSX.Element | null => {
+  if (props.rehearsals.length === 0) {
     return null
   }
-  const items = props.times.map(time => {
+  const items = props.rehearsals.map(rehearsal => {
+    const { time,  } = rehearsal
     return (
       <WeekViewRehearsalListItem key={time} time={time} />
     )

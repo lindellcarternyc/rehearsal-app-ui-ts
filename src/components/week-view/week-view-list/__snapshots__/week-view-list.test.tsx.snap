@@ -141,19 +141,7 @@ exports[`WeekViewList renders a week with rehearsals 1`] = `
     >
       Tue, January 16
     </div>
-    <div
-      className="ui bulleted list"
-      role="list"
-    >
-      <div
-        className="item"
-        data-value={undefined}
-        onClick={[Function]}
-        role="listitem"
-      >
-        12:00 - 14:00
-      </div>
-    </div>
+    No Rehearsals
   </div>
   <div
     className="item"
@@ -205,35 +193,7 @@ exports[`WeekViewList renders a week with rehearsals 1`] = `
     >
       Sat, January 20
     </div>
-    <div
-      className="ui bulleted list"
-      role="list"
-    >
-      <div
-        className="item"
-        data-value={undefined}
-        onClick={[Function]}
-        role="listitem"
-      >
-        13:00 - 14:30
-      </div>
-      <div
-        className="item"
-        data-value={undefined}
-        onClick={[Function]}
-        role="listitem"
-      >
-        14:30 - 16:00
-      </div>
-      <div
-        className="item"
-        data-value={undefined}
-        onClick={[Function]}
-        role="listitem"
-      >
-        16:00 - 18:00
-      </div>
-    </div>
+    No Rehearsals
   </div>
 </div>
 `;

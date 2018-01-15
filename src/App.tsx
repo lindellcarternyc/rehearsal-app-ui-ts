@@ -69,8 +69,11 @@ class App extends React.Component<Props, State> {
     }
   }
 
-  selectRehearsal = (date: string, time: string, material: string) => {
-    const currentRehearsal = {date, time, material}
+  selectRehearsal = (rehearsalNum: number) => {
+    const day = this.state.currentDay!
+    const date = day.date
+    const rehearsal = day.rehearsals[rehearsalNum]
+    const currentRehearsal = {date, ...rehearsal}
     this.setState({rehearsal: true, currentRehearsal})
   }
 

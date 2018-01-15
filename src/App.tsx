@@ -42,8 +42,7 @@ class App extends React.Component<Props, State> {
   }
 
   dismissDay = () => {
-    const day = false
-    this.setState({day})
+    this.setState({day: false, currentDay: null})
   }
 
   selectDay = (dayNum: number) => {

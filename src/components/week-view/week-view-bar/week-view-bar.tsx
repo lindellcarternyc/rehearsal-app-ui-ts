@@ -5,6 +5,8 @@ import WeekViewBarItem, { WeekViewBarItemProps } from './week-view-bar-item'
 
 export interface WeekViewBarProps {
   days: WeekViewBarItemProps[]
+  previous: () => void
+  next: () => void
 }
 
 const WeekViewBar = (props: WeekViewBarProps): JSX.Element => {
@@ -18,9 +20,17 @@ const WeekViewBar = (props: WeekViewBarProps): JSX.Element => {
   })
   return (
     <Menu fluid widths={9} fixed='top'>
-      <MenuItem key='left' icon='chevron left' />
+      <MenuItem 
+        key='left' 
+        icon='chevron left' 
+        onClick={props.previous}
+      />
       {items}
-      <MenuItem key='right' icon='chevron right' />
+      <MenuItem 
+        key='right' 
+        icon='chevron right'
+        onClick={props.next} 
+      />
     </Menu>
   )
 }

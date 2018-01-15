@@ -5,11 +5,16 @@ import { Container } from 'semantic-ui-react'
 import WeekViewBar, { } from './week-view-bar/week-view-bar'
 import WeekViewList from './week-view-list/week-view-list'
 
-export interface WeekViewComponentProps {
+export interface WeekViewComponentData {
   days: {
     date:   string
     times?: string[]
   }[]
+}
+
+export interface WeekViewComponentProps extends WeekViewComponentData {
+  previous: () => void
+  next: () => void
 }
 
 export const WeekViewComponent = (props: WeekViewComponentProps): JSX.Element => {
@@ -23,7 +28,11 @@ export const WeekViewComponent = (props: WeekViewComponentProps): JSX.Element =>
   const numRehearsalDays = props.days.filter(day => day.times !== undefined).length
   return (
     <div>
-      <WeekViewBar days={barDays}/>
+      <WeekViewBar 
+        days={barDays} 
+        previous={props.previous}
+        next={props.next}
+      />
       <Container style={{paddingTop: '6rem'}} text>
         {numRehearsalDays > 0 && 
           <WeekViewList days={props.days}/>

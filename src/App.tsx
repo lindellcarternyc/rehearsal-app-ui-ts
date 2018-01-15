@@ -21,19 +21,19 @@ class App extends React.Component<Props, State> {
   }
 
   next = () => {
-    let week = this.state.week + 1
-    if (week >= WEEKS.length) {
-      week = 0
+    let week = this.state.week
+    if (week < WEEKS.length - 1) {
+      week += 1
+      this.setState({week})
     }
-    this.setState({week})
   }
 
   previous = () => {
-    let week = this.state.week - 1
-    if (week < 0) {
-      week = WEEKS.length - 1
+    let week = this.state.week
+    if (week > 0) {
+      week -= 1
+      this.setState({week})
     }
-    this.setState({week})
   }
   
   render() {

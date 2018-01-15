@@ -1,0 +1,466 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WeekViewBar renders correctly with no rehearsals 1`] = `
+<div
+  className="ui fluid top fixed nine item menu"
+>
+  <div
+    className="icon item"
+    onClick={[Function]}
+  >
+    <i
+      aria-hidden="true"
+      className="chevron left icon"
+    />
+    
+  </div>
+  <div
+    className="item"
+    onClick={[Function]}
+  >
+    <h3
+      align="center"
+      className="ui header"
+    >
+      <div
+        className="sub header"
+      >
+        S
+      </div>
+      14
+    </h3>
+  </div>
+  <div
+    className="item"
+    onClick={[Function]}
+  >
+    <h3
+      align="center"
+      className="ui header"
+    >
+      <div
+        className="sub header"
+      >
+        M
+      </div>
+      15
+    </h3>
+  </div>
+  <div
+    className="item"
+    onClick={[Function]}
+  >
+    <h3
+      align="center"
+      className="ui header"
+    >
+      <div
+        className="sub header"
+      >
+        T
+      </div>
+      16
+    </h3>
+  </div>
+  <div
+    className="item"
+    onClick={[Function]}
+  >
+    <h3
+      align="center"
+      className="ui header"
+    >
+      <div
+        className="sub header"
+      >
+        W
+      </div>
+      17
+    </h3>
+  </div>
+  <div
+    className="item"
+    onClick={[Function]}
+  >
+    <h3
+      align="center"
+      className="ui header"
+    >
+      <div
+        className="sub header"
+      >
+        T
+      </div>
+      18
+    </h3>
+  </div>
+  <div
+    className="item"
+    onClick={[Function]}
+  >
+    <h3
+      align="center"
+      className="ui header"
+    >
+      <div
+        className="sub header"
+      >
+        F
+      </div>
+      20
+    </h3>
+  </div>
+  <div
+    className="item"
+    onClick={[Function]}
+  >
+    <h3
+      align="center"
+      className="ui header"
+    >
+      <div
+        className="sub header"
+      >
+        S
+      </div>
+      20
+    </h3>
+  </div>
+  <div
+    className="icon item"
+    onClick={[Function]}
+  >
+    <i
+      aria-hidden="true"
+      className="chevron right icon"
+    />
+    
+  </div>
+</div>
+`;
+
+exports[`WeekViewBar renders correctly with rehearsals on multiple days 1`] = `
+<div
+  className="ui fluid top fixed nine item menu"
+>
+  <div
+    className="icon item"
+    onClick={[Function]}
+  >
+    <i
+      aria-hidden="true"
+      className="chevron left icon"
+    />
+    
+  </div>
+  <div
+    className="item"
+    onClick={[Function]}
+  >
+    <h3
+      align="center"
+      className="ui header"
+    >
+      <div
+        className="sub header"
+      >
+        S
+      </div>
+      14
+    </h3>
+    <div>
+      <i
+        aria-hidden="true"
+        className="circle tiny icon"
+      />
+    </div>
+  </div>
+  <div
+    className="item"
+    onClick={[Function]}
+  >
+    <h3
+      align="center"
+      className="ui header"
+    >
+      <div
+        className="sub header"
+      >
+        M
+      </div>
+      15
+    </h3>
+    <div>
+      <i
+        aria-hidden="true"
+        className="circle tiny icon"
+      />
+    </div>
+  </div>
+  <div
+    className="item"
+    onClick={[Function]}
+  >
+    <h3
+      align="center"
+      className="ui header"
+    >
+      <div
+        className="sub header"
+      >
+        T
+      </div>
+      16
+    </h3>
+    <div>
+      <i
+        aria-hidden="true"
+        className="circle tiny icon"
+      />
+    </div>
+  </div>
+  <div
+    className="item"
+    onClick={[Function]}
+  >
+    <h3
+      align="center"
+      className="ui header"
+    >
+      <div
+        className="sub header"
+      >
+        W
+      </div>
+      17
+    </h3>
+    <div>
+      <i
+        aria-hidden="true"
+        className="circle tiny icon"
+      />
+    </div>
+  </div>
+  <div
+    className="item"
+    onClick={[Function]}
+  >
+    <h3
+      align="center"
+      className="ui header"
+    >
+      <div
+        className="sub header"
+      >
+        T
+      </div>
+      18
+    </h3>
+    <div>
+      <i
+        aria-hidden="true"
+        className="circle tiny icon"
+      />
+    </div>
+  </div>
+  <div
+    className="item"
+    onClick={[Function]}
+  >
+    <h3
+      align="center"
+      className="ui header"
+    >
+      <div
+        className="sub header"
+      >
+        F
+      </div>
+      20
+    </h3>
+    <div>
+      <i
+        aria-hidden="true"
+        className="circle tiny icon"
+      />
+    </div>
+  </div>
+  <div
+    className="item"
+    onClick={[Function]}
+  >
+    <h3
+      align="center"
+      className="ui header"
+    >
+      <div
+        className="sub header"
+      >
+        S
+      </div>
+      20
+    </h3>
+    <div>
+      <i
+        aria-hidden="true"
+        className="circle tiny icon"
+      />
+    </div>
+  </div>
+  <div
+    className="icon item"
+    onClick={[Function]}
+  >
+    <i
+      aria-hidden="true"
+      className="chevron right icon"
+    />
+    
+  </div>
+</div>
+`;
+
+exports[`WeekViewBar renders correctly with rehearsals on one day 1`] = `
+<div
+  className="ui fluid top fixed nine item menu"
+>
+  <div
+    className="icon item"
+    onClick={[Function]}
+  >
+    <i
+      aria-hidden="true"
+      className="chevron left icon"
+    />
+    
+  </div>
+  <div
+    className="item"
+    onClick={[Function]}
+  >
+    <h3
+      align="center"
+      className="ui header"
+    >
+      <div
+        className="sub header"
+      >
+        S
+      </div>
+      14
+    </h3>
+  </div>
+  <div
+    className="item"
+    onClick={[Function]}
+  >
+    <h3
+      align="center"
+      className="ui header"
+    >
+      <div
+        className="sub header"
+      >
+        M
+      </div>
+      15
+    </h3>
+  </div>
+  <div
+    className="item"
+    onClick={[Function]}
+  >
+    <h3
+      align="center"
+      className="ui header"
+    >
+      <div
+        className="sub header"
+      >
+        T
+      </div>
+      16
+    </h3>
+  </div>
+  <div
+    className="item"
+    onClick={[Function]}
+  >
+    <h3
+      align="center"
+      className="ui header"
+    >
+      <div
+        className="sub header"
+      >
+        W
+      </div>
+      17
+    </h3>
+    <div>
+      <i
+        aria-hidden="true"
+        className="circle tiny icon"
+      />
+    </div>
+  </div>
+  <div
+    className="item"
+    onClick={[Function]}
+  >
+    <h3
+      align="center"
+      className="ui header"
+    >
+      <div
+        className="sub header"
+      >
+        T
+      </div>
+      18
+    </h3>
+  </div>
+  <div
+    className="item"
+    onClick={[Function]}
+  >
+    <h3
+      align="center"
+      className="ui header"
+    >
+      <div
+        className="sub header"
+      >
+        F
+      </div>
+      20
+    </h3>
+  </div>
+  <div
+    className="item"
+    onClick={[Function]}
+  >
+    <h3
+      align="center"
+      className="ui header"
+    >
+      <div
+        className="sub header"
+      >
+        S
+      </div>
+      20
+    </h3>
+  </div>
+  <div
+    className="icon item"
+    onClick={[Function]}
+  >
+    <i
+      aria-hidden="true"
+      className="chevron right icon"
+    />
+    
+  </div>
+</div>
+`;

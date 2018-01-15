@@ -1,11 +1,121 @@
 import { WeekViewComponentData } from '../../components/week-view/week-view-component'
 
-import WEEK_0 from './week0'
-import WEEK_1 from './week1'
-import WEEK_2 from './week2'
-
 const WEEKS: WeekViewComponentData[] = [
-  WEEK_0, WEEK_1, WEEK_2
+  {
+    days: [
+      {
+        date: 'Sun, January 7'
+      },
+      {
+        date: 'Mon, January 8'
+      },
+      {
+        date: 'Tue, January 9'
+      },
+      {
+        date: 'Wed, January 10'
+      },
+      {
+        date: 'Thu, January 11'
+      },
+      {
+        date: 'Fri, January 12'
+      },
+      {
+        date: 'Sat, January 13'
+      }
+    ]
+  },
+  {
+    days: [
+      {
+        date: 'Sun, January 14'
+      },
+      {
+        date: 'Mon, January 15'
+      },
+      {
+        date: 'Tue, January 16',
+        rehearsals: [
+          {
+            time: '19:00 - 22:00',
+            material: 'Act I non chorus scenes'
+          }
+        ]
+      },
+      {
+        date: 'Wed, January 17'
+      },
+      {
+        date: 'Thu, January 18'
+      },
+      {
+        date: 'Fri, January 19'
+      },
+      {
+        date: 'Sat, January 20',
+        rehearsals: [
+          {
+            time: '13:00 - 14:30',
+            material: 'Act 2, Scene 1'
+          },
+          {
+            time: '14:30 - 16:00',
+            material: 'Act 2, Scene 2'
+          },
+          {
+            time: '16:00 - 18:00',
+            material: 'Act 2, Scene 4'
+          }
+        ]
+      }
+    ]
+  },
+  {
+    days: [
+      {
+        date: 'Sun, January 21'
+      },
+      {
+        date: 'Mon, January 22'
+      },
+      {
+        date: 'Tue, January 23',
+        rehearsals: [
+          {
+            time: '19:00 - 20:30',
+            material: 'Act 2, Scene 5'
+          },
+          {
+            time: '20:30 - 22:00',
+            material: 'Act 2, Scene 6'
+          }
+        ]
+      },
+      {
+        date: 'Wed, January 24'
+      },
+      {
+        date: 'Thu, January 25'
+      },
+      {
+        date: 'Fri, January 26'
+      },
+      {
+        date: 'Sat, January 27',
+        rehearsals: [
+          {
+            time: '13:00 - 15:30',
+            material: 'Run Act 2'
+          },
+          {
+            time: '16:00 - 18:00',
+            material: 'Act 3 Prologue'
+          }
+        ]
+      }
+    ]
+  }
 ]
 
 export default WEEKS

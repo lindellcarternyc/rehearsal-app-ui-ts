@@ -95,7 +95,7 @@ exports[`WeekViewComponent renders a week with rehearsals 1`] = `
         </div>
       </div>
     </div>
-    <a
+    <div
       className="item"
       onClick={[Function]}
     >
@@ -129,12 +129,12 @@ exports[`WeekViewComponent renders a week with rehearsals 1`] = `
           >
             <i
               aria-hidden="true"
-              className="blue circle tiny icon"
+              className="grey circle tiny inverted icon"
             />
           </div>
         </div>
       </div>
-    </a>
+    </div>
     <div
       className="item"
       onClick={[Function]}
@@ -255,7 +255,7 @@ exports[`WeekViewComponent renders a week with rehearsals 1`] = `
         </div>
       </div>
     </div>
-    <a
+    <div
       className="item"
       onClick={[Function]}
     >
@@ -289,12 +289,12 @@ exports[`WeekViewComponent renders a week with rehearsals 1`] = `
           >
             <i
               aria-hidden="true"
-              className="blue circle tiny icon"
+              className="grey circle tiny inverted icon"
             />
           </div>
         </div>
       </div>
-    </a>
+    </div>
     <div
       className="icon item"
       onClick={[Function]}
@@ -314,142 +314,19 @@ exports[`WeekViewComponent renders a week with rehearsals 1`] = `
       }
     }
   >
-    <div
-      className="ui celled relaxed list"
-      role="list"
+    <p
+      style={
+        Object {
+          "marginTop": "25%",
+          "textAlign": "center",
+        }
+      }
     >
-      <div
-        className="item"
-        data-value={undefined}
-        onClick={[Function]}
-        role="listitem"
-      >
-        <div
-          className="header"
-        >
-          Sun, January 14
-        </div>
-        No Rehearsals
-      </div>
-      <div
-        className="item"
-        data-value={undefined}
-        onClick={[Function]}
-        role="listitem"
-      >
-        <div
-          className="header"
-        >
-          Mon, January 15
-        </div>
-        No Rehearsals
-      </div>
-      <div
-        className="item"
-        data-value={undefined}
-        onClick={[Function]}
-        role="listitem"
-      >
-        <div
-          className="header"
-        >
-          Tue, January 16
-        </div>
-        <div
-          className="ui bulleted list"
-          role="list"
-        >
-          <div
-            className="item"
-            data-value={undefined}
-            onClick={[Function]}
-            role="listitem"
-          >
-            19:00 - 22:00
-          </div>
-        </div>
-      </div>
-      <div
-        className="item"
-        data-value={undefined}
-        onClick={[Function]}
-        role="listitem"
-      >
-        <div
-          className="header"
-        >
-          Wed, January 17
-        </div>
-        No Rehearsals
-      </div>
-      <div
-        className="item"
-        data-value={undefined}
-        onClick={[Function]}
-        role="listitem"
-      >
-        <div
-          className="header"
-        >
-          Thu, January 18
-        </div>
-        No Rehearsals
-      </div>
-      <div
-        className="item"
-        data-value={undefined}
-        onClick={[Function]}
-        role="listitem"
-      >
-        <div
-          className="header"
-        >
-          Fri, January 19
-        </div>
-        No Rehearsals
-      </div>
-      <div
-        className="item"
-        data-value={undefined}
-        onClick={[Function]}
-        role="listitem"
-      >
-        <div
-          className="header"
-        >
-          Sat, January 20
-        </div>
-        <div
-          className="ui bulleted list"
-          role="list"
-        >
-          <div
-            className="item"
-            data-value={undefined}
-            onClick={[Function]}
-            role="listitem"
-          >
-            13:00 - 14:30
-          </div>
-          <div
-            className="item"
-            data-value={undefined}
-            onClick={[Function]}
-            role="listitem"
-          >
-            14:30 - 16:00
-          </div>
-          <div
-            className="item"
-            data-value={undefined}
-            onClick={[Function]}
-            role="listitem"
-          >
-            16:00 - 18:00
-          </div>
-        </div>
-      </div>
-    </div>
+      No Rehearsals for 
+      Jan 14
+       - 
+      Jan 20
+    </p>
   </div>
 </div>
 `;

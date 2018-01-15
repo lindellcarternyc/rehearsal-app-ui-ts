@@ -16,6 +16,7 @@ interface State {
   currentRehearsal: {
     date: string
     time: string
+    material: string
   } | null
 }
 
@@ -59,7 +60,8 @@ class App extends React.Component<Props, State> {
       const day = week.days[dayNum]
       const currentDay = {
         date: day.date,
-        times: day.times!,
+        // times: day.times!,u
+        rehearsals: day.rehearsals!,
         onClick: this.dismissDay,
         selectRehearsal: this.selectRehearsal
       }
@@ -67,8 +69,8 @@ class App extends React.Component<Props, State> {
     }
   }
 
-  selectRehearsal = (date: string, time: string) => {
-    const currentRehearsal = {date, time}
+  selectRehearsal = (date: string, time: string, material: string) => {
+    const currentRehearsal = {date, time, material}
     this.setState({rehearsal: true, currentRehearsal})
   }
 

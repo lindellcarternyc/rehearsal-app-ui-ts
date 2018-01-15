@@ -23,5 +23,12 @@ exports[`RehearsalViewComponent renders a date and time 1`] = `
   >
     Back to Day
   </button>
+  <p
+    style={
+      Object {
+        "marginTop": "1rem",
+      }
+    }
+  />
 </div>
 `;

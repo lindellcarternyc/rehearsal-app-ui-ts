@@ -8,7 +8,7 @@ import WeekViewList from './week-view-list/week-view-list'
 export interface WeekViewComponentData {
   days: {
     date:   string
-    times?: string[]
+    rehearsals?: {time: string, material: string}[]
   }[]
 }
 
@@ -46,7 +46,7 @@ export const WeekViewComponent = (props: WeekViewComponentProps): JSX.Element =>
   const barDays = days.map((day, idx) => {
     const dayName = day.date.charAt(0)
     const dayNumber = day.date.split(' ')[2]
-    const hasRehearsals = day.times !== undefined && day.times.length > 0
+    const hasRehearsals = day.rehearsals !== undefined && day.rehearsals.length > 0
     const onClick = () => {
       props.clickDay(idx)
     }
@@ -54,7 +54,7 @@ export const WeekViewComponent = (props: WeekViewComponentProps): JSX.Element =>
   })
 
   const numRehearsalDays = days.filter(
-    day => day.times !== undefined
+    day => day.rehearsals !== undefined
   ).length
   return (
     <div>

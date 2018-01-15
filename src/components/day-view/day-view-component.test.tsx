@@ -10,10 +10,10 @@ describe('DayViewComponent', () => {
   it('renders without crashing', () => {
     const props: DayViewComponentProps = {
       date: 'Sat, January 20',
-      times: [
-        '13:00 - 14:30',
-        '14:30 - 16:00',
-        '16:00 - 18:00'
+      rehearsals: [
+        {time: '13:00 - 14:30', material: ''},
+        {time: '14:30 - 16:00', material: ''},
+        {time: '16:00 - 18:00', material: ''}
       ],
       onClick,
       selectRehearsal
@@ -28,10 +28,10 @@ describe('DayViewComponent', () => {
   it('renders a day with many rehearsals', () => {
     const props: DayViewComponentProps = {
       date: 'Sat, January 20',
-      times: [
-        '13:00 - 14:30',
-        '14:30 - 16:00',
-        '16:00 - 18:00'
+      rehearsals: [
+        {time: '13:00 - 14:30', material: ''},
+        {time: '14:30 - 16:00', material: ''},
+        {time: '16:00 - 18:00', material: ''}
       ],
       onClick,
       selectRehearsal
@@ -46,8 +46,11 @@ describe('DayViewComponent', () => {
   it('renders a day with one rehearsal', () => {
     const props: DayViewComponentProps = {
       date: 'Tue, January 15',
-      times: ['19:00 - 22:00'],
-      onClick
+      rehearsals: [
+        {time: '19:00 - 22:00', material: ''}
+      ],
+      onClick,
+      selectRehearsal
     }
     const tree = renderer.create(
       <DayViewComponent {...props} />

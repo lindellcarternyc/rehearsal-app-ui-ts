@@ -5,11 +5,12 @@ import { Container, Header, Button } from 'semantic-ui-react'
 export interface RehearsalViewComponentProps {
   date: string
   time: string
+  material: string
   dismissRehearsal: () => void
 }
 
 const RehearsalViewComponent = (props: RehearsalViewComponentProps) => {
-  const { date, time } = props
+  const { date, time, material } = props
   return (
     <Container text>
       <Header as='h2'>
@@ -19,6 +20,7 @@ const RehearsalViewComponent = (props: RehearsalViewComponentProps) => {
       <Button onClick={props.dismissRehearsal}>
         Back to Day
       </Button>
+      <p style={{marginTop: '1rem'}}>{material}</p>
     </Container>
   )
 }

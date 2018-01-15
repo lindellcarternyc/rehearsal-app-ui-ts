@@ -4,29 +4,42 @@ import { Container, Header, Segment, Button } from 'semantic-ui-react'
 
 export interface DayViewComponentProps {
   date: string
-  times: string[]
+  rehearsals: {time: string, material: string}[]
   onClick: () => void
-  selectRehearsal: (date: string, time: string) => void
+  selectRehearsal: (date: string, time: string, material: string) => void
 }
 
 const DayViewComponent = (props: DayViewComponentProps): JSX.Element => {
-  const timeComponents = props.times.map(time => {
+  const rehearsalComponents = props.rehearsals.map(rehearsal => {
     const selectRehearsal = () => {
-      props.selectRehearsal(props.date, time)
+      props.selectRehearsal(props.date, rehearsal.time, rehearsal.material)
     }
     return (
-      <Segment key={time}>
+      <Segment key={rehearsal.time}>
         <Button onClick={selectRehearsal}>
-          {time}
+          {rehearsal.time}
         </Button>
+        <p style={{paddingTop: '1rem'}}>{rehearsal.material}</p>
       </Segment>
     )
   })
+  // const timeComponents = props.times.map(time => {
+  //   const selectRehearsal = () => {
+  //     props.selectRehearsal(props.date, time)
+  //   }
+  //   return (
+  //     <Segment key={time}>
+  //       <Button onClick={selectRehearsal}>
+  //         {time}
+  //       </Button>
+  //     </Segment>
+  //   )
+  // })
   return (
     <Container>
       <Header as='h2' content={props.date} />
       <Button content='Back to week' onClick={props.onClick}/>
-      {timeComponents}
+      {rehearsalComponents}
     </Container>
   )
 }

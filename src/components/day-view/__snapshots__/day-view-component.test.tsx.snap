@@ -21,17 +21,41 @@ exports[`DayViewComponent renders a day with many rehearsals 1`] = `
   <div
     className="ui segment"
   >
-    13:00 - 14:30
+    <button
+      className="ui button"
+      disabled={undefined}
+      onClick={[Function]}
+      role="button"
+      tabIndex={undefined}
+    >
+      13:00 - 14:30
+    </button>
   </div>
   <div
     className="ui segment"
   >
-    14:30 - 16:00
+    <button
+      className="ui button"
+      disabled={undefined}
+      onClick={[Function]}
+      role="button"
+      tabIndex={undefined}
+    >
+      14:30 - 16:00
+    </button>
   </div>
   <div
     className="ui segment"
   >
-    16:00 - 18:00
+    <button
+      className="ui button"
+      disabled={undefined}
+      onClick={[Function]}
+      role="button"
+      tabIndex={undefined}
+    >
+      16:00 - 18:00
+    </button>
   </div>
 </div>
 `;
@@ -57,7 +81,15 @@ exports[`DayViewComponent renders a day with one rehearsal 1`] = `
   <div
     className="ui segment"
   >
-    19:00 - 22:00
+    <button
+      className="ui button"
+      disabled={undefined}
+      onClick={[Function]}
+      role="button"
+      tabIndex={undefined}
+    >
+      19:00 - 22:00
+    </button>
   </div>
 </div>
 `;

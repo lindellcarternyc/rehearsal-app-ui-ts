@@ -14,5 +14,14 @@ exports[`RehearsalViewComponent renders a date and time 1`] = `
       19:00 - 22:00
     </div>
   </h2>
+  <button
+    className="ui button"
+    disabled={undefined}
+    onClick={[Function]}
+    role="button"
+    tabIndex={undefined}
+  >
+    Back to Day
+  </button>
 </div>
 `;

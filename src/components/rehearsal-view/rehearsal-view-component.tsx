@@ -1,10 +1,11 @@
 import * as React from 'react'
 
-import { Container, Header } from 'semantic-ui-react'
+import { Container, Header, Button } from 'semantic-ui-react'
 
 export interface RehearsalViewComponentProps {
   date: string
   time: string
+  dismissRehearsal: () => void
 }
 
 const RehearsalViewComponent = (props: RehearsalViewComponentProps) => {
@@ -15,6 +16,9 @@ const RehearsalViewComponent = (props: RehearsalViewComponentProps) => {
         {date}
         <Header.Subheader content={time}/>
       </Header>
+      <Button onClick={props.dismissRehearsal}>
+        Back to Day
+      </Button>
     </Container>
   )
 }

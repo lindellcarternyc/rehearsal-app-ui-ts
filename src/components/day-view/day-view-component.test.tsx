@@ -4,6 +4,7 @@ import * as renderer from 'react-test-renderer'
 
 import DayViewComponent, { DayViewComponentProps } from './day-view-component'
 const onClick = jest.fn()
+const selectRehearsal = jest.fn()
 
 describe('DayViewComponent', () => {
   it('renders without crashing', () => {
@@ -13,7 +14,9 @@ describe('DayViewComponent', () => {
         '13:00 - 14:30',
         '14:30 - 16:00',
         '16:00 - 18:00'
-      ]
+      ],
+      onClick,
+      selectRehearsal
     }
     const div = document.createElement('div')
     ReactDOM.render(
@@ -30,7 +33,8 @@ describe('DayViewComponent', () => {
         '14:30 - 16:00',
         '16:00 - 18:00'
       ],
-      onClick
+      onClick,
+      selectRehearsal
     }
 
     const tree = renderer.create(

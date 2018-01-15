@@ -95,7 +95,7 @@ exports[`WeekViewComponent renders a week with rehearsals 1`] = `
         </div>
       </div>
     </div>
-    <div
+    <a
       className="item"
       onClick={[Function]}
     >
@@ -134,7 +134,7 @@ exports[`WeekViewComponent renders a week with rehearsals 1`] = `
           </div>
         </div>
       </div>
-    </div>
+    </a>
     <div
       className="item"
       onClick={[Function]}
@@ -255,7 +255,7 @@ exports[`WeekViewComponent renders a week with rehearsals 1`] = `
         </div>
       </div>
     </div>
-    <div
+    <a
       className="item"
       onClick={[Function]}
     >
@@ -294,7 +294,7 @@ exports[`WeekViewComponent renders a week with rehearsals 1`] = `
           </div>
         </div>
       </div>
-    </div>
+    </a>
     <div
       className="icon item"
       onClick={[Function]}

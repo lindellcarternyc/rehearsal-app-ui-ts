@@ -6,6 +6,7 @@ export interface WeekViewBarItemProps {
   dayName: string,
   dayNumber: string,
   hasRehearsals: boolean
+  onClick: () => void
 }
 
 const RehearsalIndicator = (props: {hasRehearsals: boolean}): JSX.Element => {
@@ -22,8 +23,9 @@ const RehearsalIndicator = (props: {hasRehearsals: boolean}): JSX.Element => {
 }
 
 const WeekViewBarItem = (props: WeekViewBarItemProps): JSX.Element => {
+  const click = props.hasRehearsals ? props.onClick : undefined
   return (
-    <MenuItem>
+    <MenuItem onClick={click}>
       <List style={{textAlign: 'center'}}>
         <List.Item>
           <List.Description content={props.dayName} />

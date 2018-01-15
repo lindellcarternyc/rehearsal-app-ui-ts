@@ -15,6 +15,7 @@ const WeekViewBar = (props: WeekViewBarProps): JSX.Element => {
       <WeekViewBarItem 
         key={day.dayNumber}
         {...day}
+        onClick={day.onClick}
       />
     )
   })

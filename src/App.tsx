@@ -1,7 +1,7 @@
 import * as React from 'react'
 import './App.css'
 import WeekViewComponent  from './components/week-view/week-view-component'
-import DayViewComponent from './components/day-view/day-view-component'
+import DayViewComponent, { DayViewComponentProps } from './components/day-view/day-view-component'
 
 interface Props {
 
@@ -9,18 +9,19 @@ interface Props {
 
 interface State {
   week: number
-  day: boolean
+  day: boolean,
+  currentDay: DayViewComponentProps | null
 }
 
 import WEEKS from './mocks/data/weeks'
-const Mockday = WEEKS[1].days[6]
 
 class App extends React.Component<Props, State> {
   constructor() {
     super({})
     this.state = {
       week: 0,
-      day: true
+      day: false,
+      currentDay: null
     }
   }
 
@@ -39,13 +40,29 @@ class App extends React.Component<Props, State> {
       this.setState({week})
     }
   }
+
+  dismissDay = () => {
+    const day = false
+    this.setState({day})
+  }
+
+  selectDay = (dayNum: number) => {
+    if (dayNum >= 0 && dayNum <= 6) {
+      const week = WEEKS[this.state.week]
+      const day = week.days[dayNum]
+      const currentDay = {
+        date: day.date,
+        times: day.times!,
+        onClick: this.dismissDay
+      }
+      this.setState({day: true, currentDay})
+    }
+  }
   
   render() {
     if (this.state.day) {
-      const date = Mockday.date
-      const times = Mockday.times!
       return (
-        <DayViewComponent date={date} times={times} />
+        <DayViewComponent {...this.state.currentDay!}/>
       )
     }
     const week = WEEKS[this.state.week]
@@ -55,6 +72,7 @@ class App extends React.Component<Props, State> {
         days={days}
         previous={this.previous}
         next={this.next}
+        clickDay={this.selectDay}
       />
     )
   }

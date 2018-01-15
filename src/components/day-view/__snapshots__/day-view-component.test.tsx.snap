@@ -9,6 +9,15 @@ exports[`DayViewComponent renders a day with many rehearsals 1`] = `
   >
     Sat, January 20
   </h2>
+  <button
+    className="ui button"
+    disabled={undefined}
+    onClick={[Function]}
+    role="button"
+    tabIndex={undefined}
+  >
+    Back to week
+  </button>
   <div
     className="ui segment"
   >
@@ -36,6 +45,15 @@ exports[`DayViewComponent renders a day with one rehearsal 1`] = `
   >
     Tue, January 15
   </h2>
+  <button
+    className="ui button"
+    disabled={undefined}
+    onClick={[Function]}
+    role="button"
+    tabIndex={undefined}
+  >
+    Back to week
+  </button>
   <div
     className="ui segment"
   >

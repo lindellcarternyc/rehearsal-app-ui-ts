@@ -1,10 +1,11 @@
 import * as React from 'react'
 
-import { Container, Header, Segment } from 'semantic-ui-react'
+import { Container, Header, Segment, Button } from 'semantic-ui-react'
 
 export interface DayViewComponentProps {
   date: string
   times: string[]
+  onClick: () => void
 }
 
 const DayViewComponent = (props: DayViewComponentProps): JSX.Element => {
@@ -18,6 +19,7 @@ const DayViewComponent = (props: DayViewComponentProps): JSX.Element => {
   return (
     <Container>
       <Header as='h2' content={props.date} />
+      <Button content='Back to week' onClick={props.onClick}/>
       {timeComponents}
     </Container>
   )

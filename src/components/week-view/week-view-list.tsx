@@ -2,9 +2,13 @@ import * as React from 'react'
 
 import { List } from 'semantic-ui-react'
 
-import WeekViewDay from './week-view-day'
+import WeekViewDay, { WeekViewDayProps } from './week-view-day'
 
-const WeekViewList = (props: {days: {date: string, times?: string[]}[]}): JSX.Element => {
+export interface WeekViewListProps {
+  days: WeekViewDayProps[]
+}
+
+const WeekViewList = (props: WeekViewListProps): JSX.Element => {
   const items = props.days.map(day => {
     return (
       <WeekViewDay key={day.date} {...day}/>

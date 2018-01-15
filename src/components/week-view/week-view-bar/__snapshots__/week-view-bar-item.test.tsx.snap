@@ -5,22 +5,40 @@ exports[`WeekViewBarItem renders correctly with rehearsals 1`] = `
   className="item"
   onClick={[Function]}
 >
-  <h3
-    align="center"
-    className="ui header"
+  <div
+    className="ui list"
+    role="list"
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
   >
     <div
-      className="sub header"
+      className="item"
+      data-value={undefined}
+      onClick={[Function]}
+      role="listitem"
     >
-      T
+      <div
+        className="description"
+      >
+        T
+      </div>
+      <h3
+        className="header"
+      >
+        16
+      </h3>
+      <div
+        className="description"
+      >
+        <i
+          aria-hidden="true"
+          className="blue circle tiny icon"
+        />
+      </div>
     </div>
-    16
-  </h3>
-  <div>
-    <i
-      aria-hidden="true"
-      className="circle tiny icon"
-    />
   </div>
 </div>
 `;
@@ -30,16 +48,40 @@ exports[`WeekViewBarItem renders correctly without rehearsals 1`] = `
   className="item"
   onClick={[Function]}
 >
-  <h3
-    align="center"
-    className="ui header"
+  <div
+    className="ui list"
+    role="list"
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
   >
     <div
-      className="sub header"
+      className="item"
+      data-value={undefined}
+      onClick={[Function]}
+      role="listitem"
     >
-      S
+      <div
+        className="description"
+      >
+        S
+      </div>
+      <h3
+        className="header"
+      >
+        14
+      </h3>
+      <div
+        className="description"
+      >
+        <i
+          aria-hidden="true"
+          className="grey circle tiny inverted icon"
+        />
+      </div>
     </div>
-    14
-  </h3>
+  </div>
 </div>
 `;

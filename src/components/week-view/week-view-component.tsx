@@ -2,8 +2,8 @@ import * as React from 'react'
 
 import { Container } from 'semantic-ui-react'
 
-import WeekViewBar, { } from './week-view-bar'
-import WeekViewList from './week-view-list'
+import WeekViewBar, { } from './week-view-bar/week-view-bar'
+import WeekViewList from './week-view-list/week-view-list'
 
 export interface WeekViewComponentProps {
   days: {

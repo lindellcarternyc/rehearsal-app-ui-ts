@@ -17,15 +17,41 @@ export interface WeekViewComponentProps extends WeekViewComponentData {
   next: () => void
 }
 
+const EMPTY_WEEK_VIEW_LIST_STYLES = {
+  textAlign: 'center', 
+  marginTop: '25%',
+}
+
+const emptyWeekViewListDate = (date: string): string => {
+  const comps = date.split(' ')
+  return `${comps[1].slice(0, 3)} ${comps[2]}`
+}
+
+const EmptyWeekViewList = (props: {start: string, end: string}) => {
+  const start = emptyWeekViewListDate(props.start)
+  const end = emptyWeekViewListDate(props.end)
+
+  return (
+    <p 
+      style={EMPTY_WEEK_VIEW_LIST_STYLES}
+    >
+      No Rehearsals for {start} - {end}
+    </p>
+  )
+}
+
 export const WeekViewComponent = (props: WeekViewComponentProps): JSX.Element => {
-  const barDays = props.days.map(day => {
+  const { days } = props
+  const barDays = days.map(day => {
     const dayName = day.date.charAt(0)
     const dayNumber = day.date.split(' ')[2]
     const hasRehearsals = day.times !== undefined && day.times.length > 0
     return { dayName, dayNumber, hasRehearsals }
   })
 
-  const numRehearsalDays = props.days.filter(day => day.times !== undefined).length
+  const numRehearsalDays = days.filter(
+    day => day.times !== undefined
+  ).length
   return (
     <div>
       <WeekViewBar 
@@ -35,10 +61,13 @@ export const WeekViewComponent = (props: WeekViewComponentProps): JSX.Element =>
       />
       <Container style={{paddingTop: '6rem'}} text>
         {numRehearsalDays > 0 && 
-          <WeekViewList days={props.days}/>
+          <WeekViewList days={days}/>
         }
         {numRehearsalDays === 0 &&
-          'No Rehearsals'
+          <EmptyWeekViewList 
+            start={days[0].date} 
+            end={days[6].date} 
+          />
         }
       </Container>
     </div>

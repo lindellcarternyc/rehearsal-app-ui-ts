@@ -444,7 +444,19 @@ exports[`WeekViewComponent renders correctly with no rehearsals 1`] = `
       }
     }
   >
-    No Rehearsals
+    <p
+      style={
+        Object {
+          "marginTop": "25%",
+          "textAlign": "center",
+        }
+      }
+    >
+      No Rehearsals for 
+      Jan 14
+       - 
+      Jan 20
+    </p>
   </div>
 </div>
 `;

@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DayViewComponent renders a day with many rehearsals 1`] = `
+<div
+  className="ui container"
+>
+  <h2
+    className="ui header"
+  >
+    Sat, January 20
+  </h2>
+  <div
+    className="ui segment"
+  >
+    13:00 - 14:30
+  </div>
+  <div
+    className="ui segment"
+  >
+    14:30 - 16:00
+  </div>
+  <div
+    className="ui segment"
+  >
+    16:00 - 18:00
+  </div>
+</div>
+`;
+
+exports[`DayViewComponent renders a day with one rehearsal 1`] = `
+<div
+  className="ui container"
+>
+  <h2
+    className="ui header"
+  >
+    Tue, January 15
+  </h2>
+  <div
+    className="ui segment"
+  >
+    19:00 - 22:00
+  </div>
+</div>
+`;

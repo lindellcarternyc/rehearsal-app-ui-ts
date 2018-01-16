@@ -44,7 +44,7 @@ exports[`WeekViewBarItem renders correctly with rehearsals 1`] = `
 `;
 
 exports[`WeekViewBarItem renders correctly without rehearsals 1`] = `
-<div
+<a
   className="item"
   onClick={[Function]}
 >
@@ -83,5 +83,5 @@ exports[`WeekViewBarItem renders correctly without rehearsals 1`] = `
       </div>
     </div>
   </div>
-</div>
+</a>
 `;

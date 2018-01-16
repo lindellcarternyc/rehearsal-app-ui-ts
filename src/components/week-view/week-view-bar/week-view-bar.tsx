@@ -7,15 +7,19 @@ export interface WeekViewBarProps {
   days: WeekViewBarItemProps[]
   previous: () => void
   next: () => void
+  selectDay: (dayId: number) => void
 }
 
 const WeekViewBar = (props: WeekViewBarProps): JSX.Element => {
-  const items = props.days.map(day => {
+  const items = props.days.map((day, idx) => {
+    const click = () => {
+      props.selectDay(idx)
+    }
     return (
       <WeekViewBarItem 
         key={day.dayNumber}
         {...day}
-        onClick={day.onClick}
+        onClick={click}
       />
     )
   })

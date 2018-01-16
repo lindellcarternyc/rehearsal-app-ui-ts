@@ -15,7 +15,7 @@ export interface WeekViewComponentData {
 export interface WeekViewComponentProps extends WeekViewComponentData {
   previous: () => void
   next: () => void
-  clickDay: (dayNum: number) => void
+  selectDay: (dayId: number) => void
 }
 
 const EMPTY_WEEK_VIEW_LIST_STYLES = {
@@ -48,7 +48,7 @@ export const WeekViewComponent = (props: WeekViewComponentProps): JSX.Element =>
     const dayNumber = day.date.split(' ')[2]
     const hasRehearsals = day.rehearsals !== undefined && day.rehearsals.length > 0
     const onClick = () => {
-      props.clickDay(idx)
+      return
     }
     return { dayName, dayNumber, hasRehearsals, onClick }
   })
@@ -62,6 +62,7 @@ export const WeekViewComponent = (props: WeekViewComponentProps): JSX.Element =>
         days={barDays} 
         previous={props.previous}
         next={props.next}
+        selectDay={props.selectDay}
       />
       <Container style={{paddingTop: '6rem'}} text>
         {numRehearsalDays > 0 && 

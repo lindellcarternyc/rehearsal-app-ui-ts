@@ -10,7 +10,8 @@ interface Props {
 }
 
 interface State {
-  week: number
+  selectedWeekId: number
+  selectedDayId: number | null
   weeks: WeekViewComponentData[]
   currentDay: DayViewComponentProps | null
   currentRehearsal: {
@@ -27,7 +28,8 @@ class App extends React.Component<Props, State> {
   constructor() {
     super({})
     this.state = {
-      week: 1,
+      selectedWeekId: 1,
+      selectedDayId: null,
       weeks: WEEKS,
       currentDay: null,
       currentRehearsal: null,
@@ -36,29 +38,28 @@ class App extends React.Component<Props, State> {
   }
 
   next = () => {
-    let week = this.state.week
-    if (week < this.state.weeks.length - 1) {
-      week += 1
-      this.setState({week})
+    if (this.state.selectedWeekId < this.state.weeks.length - 1) {
+      const selectedWeekId = this.state.selectedWeekId + 1
+      this.setState({selectedWeekId})
     }
   }
 
   previous = () => {
-    let week = this.state.week
-    if (week > 0) {
-      week -= 1
-      this.setState({week})
+    if (this.state.selectedWeekId > 0) {
+      const selectedWeekId = this.state.selectedWeekId - 1
+      this.setState({selectedWeekId})
     }
   }
 
   dismissDay = () => {
-    const currentDay = null
-    this.setState({currentDay})
+    const selectedDayId = null
+    this.setState({selectedDayId})
   }
 
   selectDay = (dayNum: number) => {
     if (dayNum >= 0 && dayNum <= 6) {
-      const week = this.state.weeks[this.state.week]
+      const selectedDayId = dayNum
+      const week = this.state.weeks[this.state.selectedWeekId]
       const day = week.days[dayNum]
       const rehearsals = day.rehearsals || []
       const currentDay = {
@@ -68,16 +69,25 @@ class App extends React.Component<Props, State> {
         selectRehearsal: this.selectRehearsal,
         showAddRehearsal: this.showAddRehearsal
       }
-      this.setState({currentDay})
+      this.setState({currentDay, selectedDayId})
     }
   }
 
   selectRehearsal = (rehearsalNum: number) => {
-    const day = this.state.currentDay!
-    const date = day.date
-    const rehearsal = day.rehearsals[rehearsalNum]
-    const currentRehearsal = {date, ...rehearsal}
-    this.setState({currentRehearsal})
+    const { weeks, selectedWeekId, selectedDayId } = this.state
+    if (selectedDayId !== null) {
+      const week = weeks[selectedWeekId]
+      const day = week.days[selectedDayId]
+      if (day.rehearsals !== undefined) {
+        const rehearsal = day.rehearsals[rehearsalNum]
+        const currentRehearsal = {date: day.date, ...rehearsal}
+        this.setState({currentRehearsal})
+      } else {
+        throw new Error('Rehearsals are undefined')
+      }
+    } else {
+      throw new Error('No selected day')
+    }
   }
 
   dismissRehearsal = () => {
@@ -90,16 +100,15 @@ class App extends React.Component<Props, State> {
   }
 
   addRehearsal = (time: string, material: string) => {
+    const selectedWeekId = this.state.selectedWeekId
     const currentDay = this.state.currentDay!
-    const date = currentDay.date
+    // const date = currentDay.date
 
     const weeks = this.state.weeks 
-    const week = weeks[this.state.week]
+    const week = weeks[selectedWeekId]
     const days = week.days
-    const idx = days.findIndex(_day => {
-      return _day.date === date
-    })
-    const day = days[idx]
+    const selectedDayId = this.state.selectedDayId!
+    const day = days[selectedDayId]
 
     const newRehearsal = {
       time,
@@ -113,8 +122,8 @@ class App extends React.Component<Props, State> {
     }
 
     day.rehearsals = rehearsals
-    week.days[idx] = day
-    weeks[this.state.week] = week
+    week.days[selectedDayId] = day
+    weeks[selectedWeekId] = week
 
     currentDay.rehearsals = rehearsals
 
@@ -128,7 +137,8 @@ class App extends React.Component<Props, State> {
   }
 
   render() {
-    const week = this.state.weeks[this.state.week]
+    const { selectedWeekId, selectedDayId } = this.state
+    const week = this.state.weeks[selectedWeekId]
     if (this.state.addRehearsal) {
       return (
         <AddRehearsalComponent
@@ -144,21 +154,27 @@ class App extends React.Component<Props, State> {
           dismissRehearsal={this.dismissRehearsal}
         />
       )
-    } else if (this.state.currentDay !== null) {
+    } else if (selectedDayId !== null) {
+      const day = week.days[selectedDayId]
+      const rehearsals = day.rehearsals || []
       return (
         <DayViewComponent 
-          {...this.state.currentDay}
+          {...day}
+          rehearsals={rehearsals}
+          onClick={this.dismissDay}
+          selectRehearsal={this.selectRehearsal}
+          showAddRehearsal={this.showAddRehearsal}
         />
       )
     }
-    // const week = this.state.weeks[this.state.week]
+    
     const days = week.days
     return (
       <WeekViewComponent 
         days={days}
         previous={this.previous}
         next={this.next}
-        clickDay={this.selectDay}
+        selectDay={this.selectDay}
       />
     )
   }

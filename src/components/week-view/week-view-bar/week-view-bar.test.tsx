@@ -7,6 +7,7 @@ import { WeekViewBarItemProps } from './week-view-bar-item'
 const onClick = jest.fn()
 const previous = jest.fn()
 const next = jest.fn()
+const selectDay = jest.fn()
 
 describe('WeekViewBar', () => {
   it('renders correctly with no rehearsals', () => {
@@ -54,7 +55,7 @@ describe('WeekViewBar', () => {
         onClick
       }
     ]
-    const props: WeekViewBarProps = { days, previous, next }
+    const props: WeekViewBarProps = { days, previous, next, selectDay }
     const tree = renderer.create(
       <WeekViewBar {...props} />
     )
@@ -106,7 +107,7 @@ describe('WeekViewBar', () => {
         onClick
       }
     ]
-    const props: WeekViewBarProps = { days, previous, next }
+    const props: WeekViewBarProps = { days, previous, next, selectDay }
     const tree = renderer.create(
       <WeekViewBar {...props} />
     )
@@ -158,7 +159,7 @@ describe('WeekViewBar', () => {
         onClick
       }
     ]
-    const props: WeekViewBarProps = { days, previous, next }
+    const props: WeekViewBarProps = { days, previous, next, selectDay }
     const tree = renderer.create(
       <WeekViewBar {...props} />
     )

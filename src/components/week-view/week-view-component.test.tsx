@@ -4,12 +4,12 @@ import WeekViewComponent, { WeekViewComponentProps } from './week-view-component
 
 const previous = jest.fn()
 const next = jest.fn()
-const clickDay = jest.fn()
+const selectDay = jest.fn()
 
 describe('WeekViewComponent', () => {
   it('renders a week with rehearsals', () => {
     const props: WeekViewComponentProps = {
-      clickDay,
+      selectDay,
       previous,
       next,
       days: [
@@ -75,7 +75,7 @@ describe('WeekViewComponent', () => {
       }
     ]
     const props: WeekViewComponentProps = {
-      clickDay,
+      selectDay,
       previous,
       next,
       days

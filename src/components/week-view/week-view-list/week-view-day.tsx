@@ -10,7 +10,7 @@ export interface WeekViewDayProps {
 
 const WeekViewDay = (props: WeekViewDayProps) => {
   let content: React.ReactNode
-  if (props.rehearsals !== undefined) {
+  if (props.rehearsals !== undefined && props.rehearsals.length > 0) {
     const rehearsals = props.rehearsals!
     content = (<WeekViewRehearsalList rehearsals={rehearsals}/>)
   } else {

@@ -68,6 +68,7 @@ class App extends React.Component<Props, State> {
         rehearsals,
         onClick: this.dismissDay,
         selectRehearsal: this.selectRehearsal,
+        cancelRehearsal: this.cancelRehearsal,
         showAddRehearsal: this.showAddRehearsal
       }
       this.setState({currentDay, selectedDayId})
@@ -88,6 +89,31 @@ class App extends React.Component<Props, State> {
       }
     } else {
       throw new Error('No selected day')
+    }
+  }
+
+  cancelRehearsal = (rehearsalNum: number) => {
+    const { selectedWeekId, selectedDayId, weeks } = this.state
+    
+    const week = weeks[selectedWeekId]
+    if (selectedDayId !== null) {
+      const day = week.days[selectedDayId]
+      if (day.rehearsals !== undefined) {
+        let rehearsals = day.rehearsals
+        rehearsals.splice(rehearsalNum, 1)
+
+        day.rehearsals = rehearsals
+        week.days[selectedDayId] = day
+        weeks[selectedWeekId] = week
+
+        const currentDay = Object.assign({}, this.state.currentDay, {rehearsals})
+
+        this.setState({weeks, currentDay})
+      } else {
+        throw new Error('Cannot cancel rehearsal. Day has no rehearsals')
+      }
+    } else {
+      throw new Error('No Day selected. Cannot delete rehearsal')
     }
   }
 
@@ -164,6 +190,7 @@ class App extends React.Component<Props, State> {
           rehearsals={rehearsals}
           onClick={this.dismissDay}
           selectRehearsal={this.selectRehearsal}
+          cancelRehearsal={this.cancelRehearsal}
           showAddRehearsal={this.showAddRehearsal}
         />
       )

@@ -78,7 +78,7 @@ exports[`WeekViewBarItem renders correctly without rehearsals 1`] = `
       >
         <i
           aria-hidden="true"
-          className="grey circle tiny inverted icon"
+          className="grey circle tiny icon"
         />
       </div>
     </div>

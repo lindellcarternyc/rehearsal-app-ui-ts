@@ -48,7 +48,7 @@ exports[`WeekViewBar renders correctly with no rehearsals 1`] = `
         >
           <i
             aria-hidden="true"
-            className="grey circle tiny inverted icon"
+            className="grey circle tiny icon"
           />
         </div>
       </div>
@@ -88,7 +88,7 @@ exports[`WeekViewBar renders correctly with no rehearsals 1`] = `
         >
           <i
             aria-hidden="true"
-            className="grey circle tiny inverted icon"
+            className="grey circle tiny icon"
           />
         </div>
       </div>
@@ -128,7 +128,7 @@ exports[`WeekViewBar renders correctly with no rehearsals 1`] = `
         >
           <i
             aria-hidden="true"
-            className="grey circle tiny inverted icon"
+            className="grey circle tiny icon"
           />
         </div>
       </div>
@@ -168,7 +168,7 @@ exports[`WeekViewBar renders correctly with no rehearsals 1`] = `
         >
           <i
             aria-hidden="true"
-            className="grey circle tiny inverted icon"
+            className="grey circle tiny icon"
           />
         </div>
       </div>
@@ -208,7 +208,7 @@ exports[`WeekViewBar renders correctly with no rehearsals 1`] = `
         >
           <i
             aria-hidden="true"
-            className="grey circle tiny inverted icon"
+            className="grey circle tiny icon"
           />
         </div>
       </div>
@@ -248,7 +248,7 @@ exports[`WeekViewBar renders correctly with no rehearsals 1`] = `
         >
           <i
             aria-hidden="true"
-            className="grey circle tiny inverted icon"
+            className="grey circle tiny icon"
           />
         </div>
       </div>
@@ -288,7 +288,7 @@ exports[`WeekViewBar renders correctly with no rehearsals 1`] = `
         >
           <i
             aria-hidden="true"
-            className="grey circle tiny inverted icon"
+            className="grey circle tiny icon"
           />
         </div>
       </div>
@@ -395,7 +395,7 @@ exports[`WeekViewBar renders correctly with rehearsals on multiple days 1`] = `
         >
           <i
             aria-hidden="true"
-            className="grey circle tiny inverted icon"
+            className="grey circle tiny icon"
           />
         </div>
       </div>
@@ -662,7 +662,7 @@ exports[`WeekViewBar renders correctly with rehearsals on one day 1`] = `
         >
           <i
             aria-hidden="true"
-            className="grey circle tiny inverted icon"
+            className="grey circle tiny icon"
           />
         </div>
       </div>
@@ -702,7 +702,7 @@ exports[`WeekViewBar renders correctly with rehearsals on one day 1`] = `
         >
           <i
             aria-hidden="true"
-            className="grey circle tiny inverted icon"
+            className="grey circle tiny icon"
           />
         </div>
       </div>
@@ -742,7 +742,7 @@ exports[`WeekViewBar renders correctly with rehearsals on one day 1`] = `
         >
           <i
             aria-hidden="true"
-            className="grey circle tiny inverted icon"
+            className="grey circle tiny icon"
           />
         </div>
       </div>
@@ -822,7 +822,7 @@ exports[`WeekViewBar renders correctly with rehearsals on one day 1`] = `
         >
           <i
             aria-hidden="true"
-            className="grey circle tiny inverted icon"
+            className="grey circle tiny icon"
           />
         </div>
       </div>
@@ -862,7 +862,7 @@ exports[`WeekViewBar renders correctly with rehearsals on one day 1`] = `
         >
           <i
             aria-hidden="true"
-            className="grey circle tiny inverted icon"
+            className="grey circle tiny icon"
           />
         </div>
       </div>
@@ -902,7 +902,7 @@ exports[`WeekViewBar renders correctly with rehearsals on one day 1`] = `
         >
           <i
             aria-hidden="true"
-            className="grey circle tiny inverted icon"
+            className="grey circle tiny icon"
           />
         </div>
       </div>

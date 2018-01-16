@@ -1,6 +1,6 @@
 import * as React from 'react'
 import './App.css'
-import WeekViewComponent, { WeekViewComponentData }  from './components/week-view/week-view-component'
+import WeekViewComponent, { WeekViewComponentData, }  from './components/week-view/week-view-component'
 import DayViewComponent, { DayViewComponentProps } from './components/day-view/day-view-component'
 import RehearsalViewComponent from './components/rehearsal-view/rehearsal-view-component'
 import AddRehearsalComponent from './components/add-rehearsal/add-rehearsal-component'
@@ -111,6 +111,7 @@ class App extends React.Component<Props, State> {
         break
       }
     }
+
     if (weekId !== -1 && dayId !== -1) {
       const week = weeks[weekId]
       const day = week.days[dayId]

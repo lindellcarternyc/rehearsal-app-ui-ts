@@ -23,9 +23,8 @@ const RehearsalIndicator = (props: {hasRehearsals: boolean}): JSX.Element => {
 }
 
 const WeekViewBarItem = (props: WeekViewBarItemProps): JSX.Element => {
-  const click = props.hasRehearsals ? props.onClick : undefined
   return (
-    <MenuItem onClick={click}>
+    <MenuItem onClick={props.onClick}>
       <List style={{textAlign: 'center'}}>
         <List.Item>
           <List.Description content={props.dayName} />

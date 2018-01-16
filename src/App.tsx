@@ -60,9 +60,10 @@ class App extends React.Component<Props, State> {
     if (dayNum >= 0 && dayNum <= 6) {
       const week = this.state.weeks[this.state.week]
       const day = week.days[dayNum]
+      const rehearsals = day.rehearsals || []
       const currentDay = {
         date: day.date,
-        rehearsals: day.rehearsals!,
+        rehearsals,
         onClick: this.dismissDay,
         selectRehearsal: this.selectRehearsal,
         showAddRehearsal: this.showAddRehearsal
@@ -117,7 +118,10 @@ class App extends React.Component<Props, State> {
         time: startTime + ' - ' + endTime,
         material
       }
-      const rehearsals = [...day.rehearsals!, newRehearsal]
+      
+      const rehearsals = day.rehearsals !== undefined ?
+        [...day.rehearsals!, newRehearsal] :
+        [newRehearsal]
 
       day.rehearsals = rehearsals
       week.days[dayId] = day

@@ -9,6 +9,7 @@ export interface DayViewComponentProps {
   onClick: () => void
   selectRehearsal: (rehearsalNum: number) => void
   cancelRehearsal: (rehearsalNum: number) => void
+  showEditRehearsal: (rehearsalNum: number) => void
   showAddRehearsal: (date: string) => void
 }
 
@@ -20,7 +21,11 @@ const DayViewComponent = (props: DayViewComponentProps): JSX.Element => {
       evt.stopPropagation()
 
       if (evt.currentTarget.nodeName === 'BUTTON') {
-        props.cancelRehearsal(idx)
+        if (evt.currentTarget.id === 'edit') {
+          props.showEditRehearsal(idx)
+        } else {
+          props.cancelRehearsal(idx)
+        }
       } else {
         props.selectRehearsal(idx)
       }
@@ -29,6 +34,7 @@ const DayViewComponent = (props: DayViewComponentProps): JSX.Element => {
       <Message key={rehearsal.time} onClick={handleClick}>
         <Message.Header content={rehearsal.time} />
         <p style={{paddingTop: '1rem'}}>{rehearsal.material}</p>
+        <Button content='Edit'  color='blue' onClick={handleClick} id='edit'/>
         <Button content='Cancel' onClick={handleClick} />
       </Message>
     )

@@ -4,6 +4,7 @@ import WeekViewComponent, { WeekViewComponentData, }  from './components/week-vi
 import DayViewComponent, {  } from './components/day-view/day-view-component'
 import RehearsalViewComponent from './components/rehearsal-view/rehearsal-view-component'
 import AddRehearsalComponent from './components/add-rehearsal/add-rehearsal-component'
+import EditRehearsalComponent from './components/edit-rehearsal/edit-rehearsal-component'
 
 import RehearsalModel from './models/rehearsal-model'
 
@@ -20,6 +21,11 @@ interface State {
     rehearsal: RehearsalModel
   } | null
   addRehearsal: {date: string} | null
+  editRehearsal: {
+    date: string
+    rehearsal: RehearsalModel
+    rehearsalNum: number
+  } | null
 }
 
 import WEEKS from './mocks/data/weeks'
@@ -32,7 +38,8 @@ class App extends React.Component<Props, State> {
       selectedDayId: null,
       weeks: WEEKS,
       currentRehearsal: null,
-      addRehearsal: null
+      addRehearsal: null,
+      editRehearsal: null
     }
   }
 
@@ -140,7 +147,63 @@ class App extends React.Component<Props, State> {
     this.setState({addRehearsal: {date}})
   }
 
+  dismissEditRehearsal = () => {
+    this.setState({editRehearsal: null})
+  }
+
+  showEditRehearsal = (rehearsalNum: number) => {
+    const { weeks, selectedWeekId, selectedDayId } = this.state
+
+    const week = weeks[selectedWeekId]
+    if (selectedDayId !== null) {
+      const day = week.days[selectedDayId]
+      if (day.rehearsals !== undefined) {
+        const date = day.date
+        const rehearsal = day.rehearsals[rehearsalNum]
+        this.setState({editRehearsal: {date, rehearsal, rehearsalNum}})
+      } else {
+        return
+      }
+    } else {
+      return
+    }
+  }
+
+  editRehearsal = (rehearsalNum: number, rehearsal: RehearsalModel) => {
+    this.dismissEditRehearsal()
+    const { weeks, selectedWeekId, selectedDayId } = this.state
+    if (selectedDayId !== null) {
+      const week = weeks[selectedWeekId]
+      const day = week.days[selectedDayId]
+      if (day.rehearsals !== undefined) {
+        let rehearsals = day.rehearsals
+        const edited = Object.assign(
+          {},
+          rehearsals[rehearsalNum],
+          {...rehearsal}
+        )
+        day.rehearsals[rehearsalNum] = edited
+        week.days[selectedDayId] = day
+        weeks[selectedWeekId] = week
+        this.setState({weeks})
+      } else {
+        return
+      }
+    } else {
+      return
+    }
+  }
+
   render() {
+    if (this.state.editRehearsal !== null) {
+      return (
+        <EditRehearsalComponent 
+          {...this.state.editRehearsal}
+          dismiss={this.dismissEditRehearsal}
+          editRehearsal={this.editRehearsal}
+        />
+      )
+    }
     const { selectedWeekId, selectedDayId } = this.state
     const week = this.state.weeks[selectedWeekId]
     if (this.state.addRehearsal) {
@@ -169,6 +232,7 @@ class App extends React.Component<Props, State> {
           selectRehearsal={this.selectRehearsal}
           cancelRehearsal={this.cancelRehearsal}
           showAddRehearsal={this.showAddRehearsal}
+          showEditRehearsal={this.showEditRehearsal}
         />
       )
     }

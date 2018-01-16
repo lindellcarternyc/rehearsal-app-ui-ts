@@ -46,6 +46,16 @@ exports[`DayViewComponent renders a day with many rehearsals 1`] = `
       
     </p>
     <button
+      className="ui blue button"
+      disabled={undefined}
+      id="edit"
+      onClick={[Function]}
+      role="button"
+      tabIndex={undefined}
+    >
+      Edit
+    </button>
+    <button
       className="ui button"
       disabled={undefined}
       onClick={[Function]}
@@ -74,6 +84,16 @@ exports[`DayViewComponent renders a day with many rehearsals 1`] = `
       
     </p>
     <button
+      className="ui blue button"
+      disabled={undefined}
+      id="edit"
+      onClick={[Function]}
+      role="button"
+      tabIndex={undefined}
+    >
+      Edit
+    </button>
+    <button
       className="ui button"
       disabled={undefined}
       onClick={[Function]}
@@ -101,6 +121,16 @@ exports[`DayViewComponent renders a day with many rehearsals 1`] = `
     >
       
     </p>
+    <button
+      className="ui blue button"
+      disabled={undefined}
+      id="edit"
+      onClick={[Function]}
+      role="button"
+      tabIndex={undefined}
+    >
+      Edit
+    </button>
     <button
       className="ui button"
       disabled={undefined}
@@ -159,6 +189,16 @@ exports[`DayViewComponent renders a day with one rehearsal 1`] = `
     >
       
     </p>
+    <button
+      className="ui blue button"
+      disabled={undefined}
+      id="edit"
+      onClick={[Function]}
+      role="button"
+      tabIndex={undefined}
+    >
+      Edit
+    </button>
     <button
       className="ui button"
       disabled={undefined}

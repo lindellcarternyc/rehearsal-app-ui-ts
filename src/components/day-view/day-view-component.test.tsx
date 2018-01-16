@@ -7,12 +7,14 @@ const onClick = jest.fn()
 const selectRehearsal = jest.fn()
 const cancelRehearsal = jest.fn()
 const showAddRehearsal = jest.fn()
+const showEditRehearsal = jest.fn()
 
 describe('DayViewComponent', () => {
   it('renders without crashing', () => {
     const props: DayViewComponentProps = {
       showAddRehearsal,
       cancelRehearsal,
+      showEditRehearsal,
       date: 'Sat, January 20',
       rehearsals: [
         {time: '13:00 - 14:30', material: ''},
@@ -33,6 +35,7 @@ describe('DayViewComponent', () => {
     const props: DayViewComponentProps = {
       showAddRehearsal,
       cancelRehearsal,
+      showEditRehearsal,
       date: 'Sat, January 20',
       rehearsals: [
         {time: '13:00 - 14:30', material: ''},
@@ -53,6 +56,7 @@ describe('DayViewComponent', () => {
     const props: DayViewComponentProps = {
       showAddRehearsal,
       cancelRehearsal,
+      showEditRehearsal,
       date: 'Tue, January 15',
       rehearsals: [
         {time: '19:00 - 22:00', material: ''}

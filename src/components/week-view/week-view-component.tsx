@@ -5,10 +5,12 @@ import { Container } from 'semantic-ui-react'
 import WeekViewBar, { } from './week-view-bar/week-view-bar'
 import WeekViewList from './week-view-list/week-view-list'
 
+import RehearsalModel from '../../models/rehearsal-model'
+
 export interface WeekViewComponentData {
   days: {
     date:   string
-    rehearsals?: {time: string, material: string}[]
+    rehearsals?: RehearsalModel[]
   }[]
 }
 

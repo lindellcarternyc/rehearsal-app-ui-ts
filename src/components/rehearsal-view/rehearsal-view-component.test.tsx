@@ -10,8 +10,10 @@ describe('RehearsalViewComponent', () => {
   it('renders without crashing', () => {
     const props: RehearsalViewComponentProps = {
       date: 'Tue, January 16',
-      time: '19:00 - 22:00',
-      material: '',
+      rehearsal: {
+        time: '19:00 - 22:00',
+        material: ''
+      },
       dismissRehearsal
     }
     const div = document.createElement('div')
@@ -24,8 +26,10 @@ describe('RehearsalViewComponent', () => {
   it('renders a date and time', () => {
     const props: RehearsalViewComponentProps = {
       date: 'Tue, January 16',
-      time: '19:00 - 22:00',
-      material: '',
+      rehearsal: {
+        time: '19:00 - 22:00',
+        material: ''
+      },
       dismissRehearsal
     }
     const tree = renderer.create(

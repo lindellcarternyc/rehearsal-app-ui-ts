@@ -29,6 +29,8 @@ exports[`RehearsalViewComponent renders a date and time 1`] = `
         "marginTop": "1rem",
       }
     }
-  />
+  >
+    
+  </p>
 </div>
 `;

@@ -5,6 +5,8 @@ import DayViewComponent, { DayViewComponentProps } from './components/day-view/d
 import RehearsalViewComponent from './components/rehearsal-view/rehearsal-view-component'
 import AddRehearsalComponent from './components/add-rehearsal/add-rehearsal-component'
 
+import RehearsalModel from './models/rehearsal-model'
+
 interface Props {
 
 }
@@ -16,8 +18,7 @@ interface State {
   currentDay: DayViewComponentProps | null
   currentRehearsal: {
     date: string
-    time: string
-    material: string
+    rehearsal: RehearsalModel
   } | null
   addRehearsal: {date: string} | null
 }
@@ -80,7 +81,7 @@ class App extends React.Component<Props, State> {
       const day = week.days[selectedDayId]
       if (day.rehearsals !== undefined) {
         const rehearsal = day.rehearsals[rehearsalNum]
-        const currentRehearsal = {date: day.date, ...rehearsal}
+        const currentRehearsal = {date: day.date, rehearsal}
         this.setState({currentRehearsal})
       } else {
         throw new Error('Rehearsals are undefined')

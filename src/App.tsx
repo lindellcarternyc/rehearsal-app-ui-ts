@@ -1,7 +1,7 @@
 import * as React from 'react'
 import './App.css'
 import WeekViewComponent, { WeekViewComponentData, }  from './components/week-view/week-view-component'
-import DayViewComponent, { DayViewComponentProps } from './components/day-view/day-view-component'
+import DayViewComponent, {  } from './components/day-view/day-view-component'
 import RehearsalViewComponent from './components/rehearsal-view/rehearsal-view-component'
 import AddRehearsalComponent from './components/add-rehearsal/add-rehearsal-component'
 
@@ -15,7 +15,6 @@ interface State {
   selectedWeekId: number
   selectedDayId: number | null
   weeks: WeekViewComponentData[]
-  currentDay: DayViewComponentProps | null
   currentRehearsal: {
     date: string
     rehearsal: RehearsalModel
@@ -32,7 +31,6 @@ class App extends React.Component<Props, State> {
       selectedWeekId: 1,
       selectedDayId: null,
       weeks: WEEKS,
-      currentDay: null,
       currentRehearsal: null,
       addRehearsal: null
     }
@@ -60,18 +58,7 @@ class App extends React.Component<Props, State> {
   selectDay = (dayNum: number) => {
     if (dayNum >= 0 && dayNum <= 6) {
       const selectedDayId = dayNum
-      const week = this.state.weeks[this.state.selectedWeekId]
-      const day = week.days[dayNum]
-      const rehearsals = day.rehearsals || []
-      const currentDay = {
-        date: day.date,
-        rehearsals,
-        onClick: this.dismissDay,
-        selectRehearsal: this.selectRehearsal,
-        cancelRehearsal: this.cancelRehearsal,
-        showAddRehearsal: this.showAddRehearsal
-      }
-      this.setState({currentDay, selectedDayId})
+      this.setState({selectedDayId})
     }
   }
 
@@ -106,9 +93,7 @@ class App extends React.Component<Props, State> {
         week.days[selectedDayId] = day
         weeks[selectedWeekId] = week
 
-        const currentDay = Object.assign({}, this.state.currentDay, {rehearsals})
-
-        this.setState({weeks, currentDay})
+        this.setState({weeks})
       } else {
         throw new Error('Cannot cancel rehearsal. Day has no rehearsals')
       }
@@ -128,8 +113,6 @@ class App extends React.Component<Props, State> {
 
   addRehearsal = (rehearsal: RehearsalModel) => {
     const selectedWeekId = this.state.selectedWeekId
-    const currentDay = this.state.currentDay!
-    // const date = currentDay.date
 
     const weeks = this.state.weeks 
     const week = weeks[selectedWeekId]
@@ -148,9 +131,7 @@ class App extends React.Component<Props, State> {
     week.days[selectedDayId] = day
     weeks[selectedWeekId] = week
 
-    currentDay.rehearsals = rehearsals
-
-    this.setState({weeks, currentDay}, () => {
+    this.setState({weeks}, () => {
       this.dismissAddRehearsal()
     })
   }

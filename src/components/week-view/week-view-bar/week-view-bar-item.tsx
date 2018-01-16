@@ -10,13 +10,9 @@ export interface WeekViewBarItemProps {
 }
 
 const RehearsalIndicator = (props: {hasRehearsals: boolean}): JSX.Element => {
-  const icon = props.hasRehearsals ? 
-    (
-      <Icon name='circle' size='tiny' color='blue' />
-    ) : 
-    (
-      <Icon name='circle' size='tiny' color='grey' inverted />
-    )
+  const color = props.hasRehearsals ? 'blue' : 'grey'
+  const icon = (<Icon name='circle' size='tiny' color={color} />)
+
   return (
     <List.Description content={icon} />
   )

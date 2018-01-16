@@ -66,7 +66,7 @@ export const WeekViewComponent = (props: WeekViewComponentProps): JSX.Element =>
         next={props.next}
         selectDay={props.selectDay}
       />
-      <Container style={{paddingTop: '6rem'}} text>
+      <Container style={{paddingTop: '9rem'}} text>
         {numRehearsalDays > 0 && 
           <WeekViewList days={days}/>
         }

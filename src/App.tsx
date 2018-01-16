@@ -12,6 +12,8 @@ interface Props {
 
 }
 
+import { Menu, Icon } from 'semantic-ui-react'
+
 interface State {
   selectedWeekId: number
   selectedDayId: number | null
@@ -194,7 +196,8 @@ class App extends React.Component<Props, State> {
     }
   }
 
-  render() {
+  content = (): JSX.Element => {
+    
     if (this.state.editRehearsal !== null) {
       return (
         <EditRehearsalComponent 
@@ -245,6 +248,42 @@ class App extends React.Component<Props, State> {
         next={this.next}
         selectDay={this.selectDay}
       />
+    )
+  }
+
+  getMenuTitle = (): string => {
+    const { selectedDayId, weeks, selectedWeekId } = this.state
+    const week = weeks[selectedWeekId]
+    let title: string
+    if (this.state.editRehearsal) {
+      const date = week.days[selectedDayId!].date
+      title = `Edit Rehearsal - ${date}`
+    } else if (this.state.addRehearsal) {
+      const date = week.days[selectedDayId!].date
+      title = 'Add Rehearsal - ' + date 
+    } else if (this.state.currentRehearsal) {
+      const date = week.days[selectedDayId!].date
+      title = 'Rehearsal - ' + date
+    } else if (this.state.selectedDayId) {
+      const date = week.days[this.state.selectedDayId].date
+      title = 'Day View - ' + date
+    } else {
+      title = 'Week View'
+    }
+    return title
+  }
+  render() {
+    const title = this.getMenuTitle()
+    return (
+      <div>
+        <Menu fixed='top' inverted color='blue'>
+          <Menu.Item>
+            <Icon name='tasks' />
+          </Menu.Item>
+          <Menu.Item name={title} />
+        </Menu>
+        {this.content()}
+      </div>
     )
   }
 }

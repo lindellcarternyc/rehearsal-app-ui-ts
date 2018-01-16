@@ -24,7 +24,7 @@ const WeekViewBar = (props: WeekViewBarProps): JSX.Element => {
     )
   })
   return (
-    <Menu fluid widths={9} fixed='top'>
+    <Menu fluid widths={9} fixed='top' style={{marginTop: '3rem'}}>
       <MenuItem 
         key='left' 
         icon='chevron left' 

@@ -126,7 +126,7 @@ class App extends React.Component<Props, State> {
     this.setState({addRehearsal: null})
   }
 
-  addRehearsal = (time: string, material: string) => {
+  addRehearsal = (rehearsal: RehearsalModel) => {
     const selectedWeekId = this.state.selectedWeekId
     const currentDay = this.state.currentDay!
     // const date = currentDay.date
@@ -137,15 +137,11 @@ class App extends React.Component<Props, State> {
     const selectedDayId = this.state.selectedDayId!
     const day = days[selectedDayId]
 
-    const newRehearsal = {
-      time,
-      material
-    }
     let rehearsals: {time: string, material: string}[]
     if (day.rehearsals !== undefined) {
-      rehearsals = [...day.rehearsals, newRehearsal]
+      rehearsals = [...day.rehearsals, rehearsal]
     } else {
-      rehearsals = [newRehearsal]
+      rehearsals = [rehearsal]
     }
 
     day.rehearsals = rehearsals

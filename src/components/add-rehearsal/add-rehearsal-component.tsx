@@ -2,10 +2,12 @@ import * as React from 'react'
 
 import { Container, Header, Form, Button } from 'semantic-ui-react'
 
+import RehearsalModel from '../../models/rehearsal-model'
+
 interface AddRehearsalComponentProps {
   date: string
   dismiss: () => void
-  addRehearsal: (time: string, material: string) => void
+  addRehearsal: (rehearsal: RehearsalModel) => void
 }
 
 interface AddRehearsalComponentState {
@@ -44,7 +46,7 @@ class AddRehearsalComponent extends React.Component<AddRehearsalComponentProps, 
   onSubmit = () => {
     const { startTime, endTime, material } = this.state
     const time = startTime + ' - ' + endTime
-    this.props.addRehearsal(time, material)
+    this.props.addRehearsal({time, material})
   }
 
   render() {
@@ -52,20 +54,28 @@ class AddRehearsalComponent extends React.Component<AddRehearsalComponentProps, 
       <Container>
         <Header as='h2' content={'Add Rehearsal: ' + this.props.date} />
         <Form onSubmit={this.onSubmit}>
-          <Form.Input
-            id='startTime'
-            label='Start time' 
-            type='time' 
-            required 
-            onChange={this.onChange}
-          />
-          <Form.Input 
-            label='End time' 
-            id='endTime'
-            type='time' 
-            onChange={this.onChange}
-            required 
-          />
+          <Form.Group widths='equal'>
+            <Form.Field>
+              <Form.Input
+                id='startTime'
+                label='Start time' 
+                type='time' 
+                required
+                fluid 
+                onChange={this.onChange}
+              />
+            </Form.Field>
+            <Form.Field>
+              <Form.Input
+                label='End time' 
+                id='endTime'
+                type='time' 
+                onChange={this.onChange}
+                fluid
+                required 
+              />
+            </Form.Field>
+          </Form.Group>
           <Form.Input 
             label='Material'
             id='material' 
@@ -83,7 +93,6 @@ class AddRehearsalComponent extends React.Component<AddRehearsalComponentProps, 
             onClick={this.props.dismiss}
           />
         </Form>
-        <p>{JSON.stringify(this.state, null, 2)}</p>
       </Container>
     )
   }

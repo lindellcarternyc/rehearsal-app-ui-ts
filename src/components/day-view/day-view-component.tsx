@@ -2,9 +2,10 @@ import * as React from 'react'
 
 import { Container, Header, Message, Button } from 'semantic-ui-react'
 
+import RehearsalModel from '../../models/rehearsal-model'
 export interface DayViewComponentProps {
   date: string
-  rehearsals: {time: string, material: string}[]
+  rehearsals: RehearsalModel[]
   onClick: () => void
   selectRehearsal: (rehearsalNum: number) => void
   cancelRehearsal: (rehearsalNum: number) => void
@@ -38,7 +39,7 @@ const DayViewComponent = (props: DayViewComponentProps): JSX.Element => {
       <Button content='Back to week' onClick={props.onClick}/>
       <Button content='Add Rehearsal' onClick={() => {props.showAddRehearsal(props.date)}}/>
       {props.rehearsals.length > 0 && rehearsalComponents}
-      {props.rehearsals.length === 0 && <p>No Rehearsals</p>}
+      {props.rehearsals.length === 0 && <p style={{paddingTop: '1rem'}}>No Rehearsals</p>}
     </Container>
   )
 }

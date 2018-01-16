@@ -5,7 +5,7 @@ import { Container, Header, Form, Button } from 'semantic-ui-react'
 interface AddRehearsalComponentProps {
   date: string
   dismiss: () => void
-  addRehearsal: (date: string, startTime: string, endTime: string, material: string) => void
+  addRehearsal: (time: string, material: string) => void
 }
 
 interface AddRehearsalComponentState {
@@ -43,7 +43,8 @@ class AddRehearsalComponent extends React.Component<AddRehearsalComponentProps, 
 
   onSubmit = () => {
     const { startTime, endTime, material } = this.state
-    this.props.addRehearsal(this.props.date, startTime, endTime, material)
+    const time = startTime + ' - ' + endTime
+    this.props.addRehearsal(time, material)
   }
 
   render() {

@@ -89,58 +89,38 @@ class App extends React.Component<Props, State> {
     this.setState({addRehearsal: null})
   }
 
-  addRehearsal = (date: string, startTime: string, endTime: string, material: string) => {
-    console.dir('add rehearsal: ' + date)
+  addRehearsal = (time: string, material: string) => {
+    const currentDay = this.state.currentDay!
+    const date = currentDay.date
+
     const weeks = this.state.weeks 
-    let weekId = -1
-    let dayId = -1
-    for (let i = 0; i < weeks.length; i++) {
-      console.dir('looking at week:', i)
-      // weekId = i
-      for (let j = 0; j <= 6; j++) {
+    const week = weeks[this.state.week]
+    const days = week.days
+    const idx = days.findIndex(_day => {
+      return _day.date === date
+    })
+    const day = days[idx]
 
-        const testDay = weeks[i].days[j]
-        if (testDay.date === date) {
-          console.dir('found day')
-          weekId = i
-          dayId = j
-          break
-        }
-      }
-      if (weekId !== -1) {
-        break
-      }
+    const newRehearsal = {
+      time,
+      material
     }
-
-    if (weekId !== -1 && dayId !== -1) {
-      const week = weeks[weekId]
-      const day = week.days[dayId]
-      const newRehearsal = {
-        time: startTime + ' - ' + endTime,
-        material
-      }
-      
-      const rehearsals = day.rehearsals !== undefined ?
-        [...day.rehearsals!, newRehearsal] :
-        [newRehearsal]
-
-      day.rehearsals = rehearsals
-      week.days[dayId] = day
-      weeks[weekId] = week
-
-      if (this.state.currentDay && this.state.currentDay.date === date) {
-        const currentDay = Object.assign({}, this.state.currentDay, {rehearsals: day.rehearsals})
-        this.setState({weeks, currentDay}, () => {
-          this.dismissAddRehearsal()
-        })
-      }
-
-      this.setState({weeks}, () => {
-        this.dismissAddRehearsal()
-      })
+    let rehearsals: {time: string, material: string}[]
+    if (day.rehearsals !== undefined) {
+      rehearsals = [...day.rehearsals, newRehearsal]
     } else {
-      console.dir('could not find date')
+      rehearsals = [newRehearsal]
     }
+
+    day.rehearsals = rehearsals
+    week.days[idx] = day
+    weeks[this.state.week] = week
+
+    currentDay.rehearsals = rehearsals
+
+    this.setState({weeks, currentDay}, () => {
+      this.dismissAddRehearsal()
+    })
   }
   
   showAddRehearsal = (date: string) => {

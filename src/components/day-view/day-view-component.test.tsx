@@ -5,10 +5,12 @@ import * as renderer from 'react-test-renderer'
 import DayViewComponent, { DayViewComponentProps } from './day-view-component'
 const onClick = jest.fn()
 const selectRehearsal = jest.fn()
+const showAddRehearsal = jest.fn()
 
 describe('DayViewComponent', () => {
   it('renders without crashing', () => {
     const props: DayViewComponentProps = {
+      showAddRehearsal,
       date: 'Sat, January 20',
       rehearsals: [
         {time: '13:00 - 14:30', material: ''},
@@ -27,6 +29,7 @@ describe('DayViewComponent', () => {
 
   it('renders a day with many rehearsals', () => {
     const props: DayViewComponentProps = {
+      showAddRehearsal,
       date: 'Sat, January 20',
       rehearsals: [
         {time: '13:00 - 14:30', material: ''},
@@ -45,6 +48,7 @@ describe('DayViewComponent', () => {
 
   it('renders a day with one rehearsal', () => {
     const props: DayViewComponentProps = {
+      showAddRehearsal,
       date: 'Tue, January 15',
       rehearsals: [
         {time: '19:00 - 22:00', material: ''}

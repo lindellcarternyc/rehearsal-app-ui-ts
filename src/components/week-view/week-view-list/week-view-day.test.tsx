@@ -16,7 +16,9 @@ describe('WeekViewDay', () => {
   it('renders correctly with one rehearsal', () => {
     const props: WeekViewDayProps = {
       date: 'Tue, January 16',
-      times: ['19:00 - 22:00']
+      rehearsals: [
+        {time: '19:00 - 22:00', material: ''}
+      ]
     }
     const tree = renderer.create(
       <WeekViewDay {...props} />
@@ -27,7 +29,10 @@ describe('WeekViewDay', () => {
   it('renders correctly with two rehearsals', () => {
     const props: WeekViewDayProps = {
       date: 'Sat, January 20',
-      times: ['13:00 - 14:30', '14:30 - 16:00']
+      rehearsals: [
+        {time: '13:00 - 14:30', material: ''},
+        {time: '14:30 - 16:00', material: ''}
+      ]
     }
     const tree = renderer.create(
       <WeekViewDay {...props} />

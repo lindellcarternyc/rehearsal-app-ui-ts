@@ -2,9 +2,16 @@ import * as React from 'react'
 import * as renderer from 'react-test-renderer'
 import WeekViewComponent, { WeekViewComponentProps } from './week-view-component'
 
+const previous = jest.fn()
+const next = jest.fn()
+const clickDay = jest.fn()
+
 describe('WeekViewComponent', () => {
   it('renders a week with rehearsals', () => {
     const props: WeekViewComponentProps = {
+      clickDay,
+      previous,
+      next,
       days: [
         {
           date: 'Sun, January 14'
@@ -14,7 +21,9 @@ describe('WeekViewComponent', () => {
         },
         {
           date: 'Tue, January 16',
-          times: ['19:00 - 22:00']
+          rehearsals: [
+            {time: '19:00 - 22:00', material: ''}
+          ]
         },
         {
           date: 'Wed, January 17'
@@ -27,10 +36,10 @@ describe('WeekViewComponent', () => {
         },
         {
           date: 'Sat, January 20',
-          times: [
-            '13:00 - 14:30',
-            '14:30 - 16:00',
-            '16:00 - 18:00'
+          rehearsals: [
+            {time: '13:00 - 14:30', material: ''},
+            {time: '14:30 - 16:00', material: ''},
+            {time: '16:00 - 18:00', material: ''}
           ]
         }
       ]
@@ -66,6 +75,9 @@ describe('WeekViewComponent', () => {
       }
     ]
     const props: WeekViewComponentProps = {
+      clickDay,
+      previous,
+      next,
       days
     }
     const tree = renderer.create(

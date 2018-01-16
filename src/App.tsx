@@ -45,7 +45,7 @@ class App extends React.Component<Props, State> {
 
   previous = () => {
     let week = this.state.week
-    if (week > this.state.weeks.length) {
+    if (week > 0) {
       week -= 1
       this.setState({week})
     }

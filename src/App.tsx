@@ -32,7 +32,9 @@ interface State {
   showsOpera: boolean
 }
 
+// Mocks
 import WEEKS from './mocks/data/weeks'
+import MockOpera from './mocks/data/opera'
 
 class App extends React.Component<Props, State> {
   constructor() {
@@ -202,7 +204,7 @@ class App extends React.Component<Props, State> {
   content = (): JSX.Element => {
     if (this.state.showsOpera) {
       return (
-        <OperaViewComponent />
+        <OperaViewComponent opera={MockOpera} />
       )
     } else if (this.state.editRehearsal !== null) {
       return (

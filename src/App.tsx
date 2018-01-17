@@ -5,6 +5,7 @@ import DayViewComponent, {  } from './components/day-view/day-view-component'
 import RehearsalViewComponent from './components/rehearsal-view/rehearsal-view-component'
 import AddRehearsalComponent from './components/add-rehearsal/add-rehearsal-component'
 import EditRehearsalComponent from './components/edit-rehearsal/edit-rehearsal-component'
+import OperaViewComponent from './components/opera-view/opera-view-component'
 
 import RehearsalModel from './models/rehearsal-model'
 
@@ -201,7 +202,7 @@ class App extends React.Component<Props, State> {
   content = (): JSX.Element => {
     if (this.state.showsOpera) {
       return (
-        <div>'Opera'</div>
+        <OperaViewComponent />
       )
     } else if (this.state.editRehearsal !== null) {
       return (

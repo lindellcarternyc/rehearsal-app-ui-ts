@@ -46,7 +46,7 @@ class AddRehearsalComponent extends React.Component<AddRehearsalComponentProps, 
   onSubmit = () => {
     const { startTime, endTime, material } = this.state
     const time = startTime + ' - ' + endTime
-    this.props.addRehearsal({time, material})
+    this.props.addRehearsal({time, material: [material]})
   }
 
   render() {

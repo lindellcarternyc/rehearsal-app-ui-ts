@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Container, Header, Message, Button } from 'semantic-ui-react'
+import { Container, Header, Message, Button, List } from 'semantic-ui-react'
 
 import RehearsalModel from '../../models/rehearsal-model'
 export interface DayViewComponentProps {
@@ -30,10 +30,19 @@ const DayViewComponent = (props: DayViewComponentProps): JSX.Element => {
         props.selectRehearsal(idx)
       }
     }
+    const material = rehearsal.material.map(item => {
+      return (
+        <List.Item key={item} content={item} />
+      )
+    })
+
     return (
       <Message key={rehearsal.time} onClick={handleClick}>
         <Message.Header content={rehearsal.time} />
-        <p style={{paddingTop: '1rem'}}>{rehearsal.material}</p>
+        {/* <p style={{paddingTop: '1rem'}}>{rehearsal.material}</p> */}
+        <List bulleted>
+          {material}
+        </List>
         <Button content='Edit'  color='blue' onClick={handleClick} id='edit'/>
         <Button content='Cancel' onClick={handleClick} />
       </Message>

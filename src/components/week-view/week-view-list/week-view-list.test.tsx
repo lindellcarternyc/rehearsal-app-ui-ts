@@ -49,7 +49,7 @@ describe('WeekViewList', () => {
         {
           date: 'Tue, January 16',
           rehearsals: [
-            {time: '12:00 - 14:00', material: ''}
+            {time: '12:00 - 14:00', material: ['']}
           ]
         },
         {
@@ -64,9 +64,9 @@ describe('WeekViewList', () => {
         {
           date: 'Sat, January 20',
           rehearsals: [
-            {time: '13:00 - 14:30', material: ''},
-            {time: '14:30 - 16:00', material: ''},
-            {time: '16:00 - 18:00', material: ''}
+            {time: '13:00 - 14:30', material: ['']},
+            {time: '14:30 - 16:00', material: ['']},
+            {time: '16:00 - 18:00', material: ['']}
           ]
         }
       ]

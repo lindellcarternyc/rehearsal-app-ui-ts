@@ -134,7 +134,7 @@ class App extends React.Component<Props, State> {
     const selectedDayId = this.state.selectedDayId!
     const day = days[selectedDayId]
 
-    let rehearsals: {time: string, material: string}[]
+    let rehearsals: RehearsalModel[]
     if (day.rehearsals !== undefined) {
       rehearsals = [...day.rehearsals, rehearsal]
     } else {
@@ -283,12 +283,17 @@ class App extends React.Component<Props, State> {
     }
     return title
   }
+
+  toggleView = ()  => {
+    const { showsOpera } = this.state
+    this.setState({showsOpera: !showsOpera})
+  }
   render() {
     const title = this.getMenuTitle()
     return (
       <div>
         <Menu fixed='top' inverted color='blue'>
-          <Menu.Item>
+          <Menu.Item onClick={this.toggleView}>
             <Icon name='tasks' />
           </Menu.Item>
           <Menu.Item name={title} />

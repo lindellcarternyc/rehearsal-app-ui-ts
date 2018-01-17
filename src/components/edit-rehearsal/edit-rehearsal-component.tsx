@@ -14,7 +14,7 @@ interface EditRehearsalComponentProps {
 interface EditRehearsalComponentState { 
   startTime: string
   endTime: string
-  material: string
+  material: string[]
 }
 
 class EditRehearsalComponent extends React.Component<EditRehearsalComponentProps, EditRehearsalComponentState> {
@@ -43,7 +43,7 @@ class EditRehearsalComponent extends React.Component<EditRehearsalComponentProps
         this.setState({endTime: value})
         break
       case 'material':
-        this.setState({material: value})
+        this.setState({material: [value]})
         break
       default:
         return

@@ -1,5 +1,12 @@
 import { WeekViewComponentData } from '../../components/week-view/week-view-component'
 
+import MockOpera from './opera'
+const [
+  ACT_I, 
+  ACT_II,
+  ACT_III
+] = MockOpera.majorSections
+
 const WEEKS: WeekViewComponentData[] = [
   {
     days: [
@@ -39,7 +46,9 @@ const WEEKS: WeekViewComponentData[] = [
         rehearsals: [
           {
             time: '19:00 - 22:00',
-            material: 'Act I non chorus scenes'
+            material: [
+              'Act I: ' + ACT_I.minorSections[0].title
+            ]
           }
         ]
       },
@@ -57,15 +66,15 @@ const WEEKS: WeekViewComponentData[] = [
         rehearsals: [
           {
             time: '13:00 - 14:30',
-            material: 'Act 2, Scene 1'
+            material: ['Act II: ' + ACT_II.minorSections[0].title]
           },
           {
             time: '14:30 - 16:00',
-            material: 'Act 2, Scene 2'
+            material: ['Act II: ' + ACT_II.minorSections[1].title]
           },
           {
             time: '16:00 - 18:00',
-            material: 'Act 2, Scene 4'
+            material: ['Act II: ' + ACT_II.minorSections[3].title]
           }
         ]
       }
@@ -84,11 +93,11 @@ const WEEKS: WeekViewComponentData[] = [
         rehearsals: [
           {
             time: '19:00 - 20:30',
-            material: 'Act 2, Scene 5'
+            material: ['Act II: ' + ACT_II.minorSections[4].title]
           },
           {
             time: '20:30 - 22:00',
-            material: 'Act 2, Scene 6'
+            material: ['Act II: ' + ACT_II.minorSections[5].title]
           }
         ]
       },
@@ -106,11 +115,11 @@ const WEEKS: WeekViewComponentData[] = [
         rehearsals: [
           {
             time: '13:00 - 15:30',
-            material: 'Run Act 2'
+            material: [ACT_II.title]
           },
           {
             time: '16:00 - 18:00',
-            material: 'Act 3 Prologue'
+            material: ['Act 3: ' + ACT_III.minorSections[0].title]
           }
         ]
       }
@@ -129,15 +138,15 @@ const WEEKS: WeekViewComponentData[] = [
         rehearsals: [
           {
             time: '19:00 - 20:00',
-            material: 'Act 3, Scene 1'
+            material: ['Act III: ' + ACT_III.minorSections[1].title]
           },
           {
             time: '20:00 - 21:00',
-            material: 'Act 3, Scene 2'
+            material: ['Act III: ' + ACT_III.minorSections[2].title]
           },
           {
             time: '21:00 - 22:00',
-            material: 'Act 3, Scene 3'
+            material: ['Act III: ' + ACT_III.minorSections[3].title]
           }
         ]
       },
@@ -155,15 +164,15 @@ const WEEKS: WeekViewComponentData[] = [
         rehearsals: [
           {
             time: '13:00 - 14:30',
-            material: 'Act 3, Scene 4'
+            material: ['Act III: ' + ACT_III.minorSections[4].title]
           },
           {
             time: '14:30 - 16:00',
-            material: 'Act 3, Scene 5'
+            material: ['Act III: ' + ACT_III.minorSections[5].title]
           },
           {
             time: '16:00 - 18:00',
-            material: 'Act 3, Scene 6'
+            material: ['Act III: ' + ACT_III.minorSections[6].title]
           }
         ]
       }

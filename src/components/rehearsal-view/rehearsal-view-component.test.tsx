@@ -12,7 +12,7 @@ describe('RehearsalViewComponent', () => {
       date: 'Tue, January 16',
       rehearsal: {
         time: '19:00 - 22:00',
-        material: ''
+        material: ['']
       },
       dismissRehearsal
     }
@@ -28,7 +28,7 @@ describe('RehearsalViewComponent', () => {
       date: 'Tue, January 16',
       rehearsal: {
         time: '19:00 - 22:00',
-        material: ''
+        material: ['']
       },
       dismissRehearsal
     }

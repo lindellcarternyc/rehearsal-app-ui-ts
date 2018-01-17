@@ -28,6 +28,7 @@ interface State {
     rehearsal: RehearsalModel
     rehearsalNum: number
   } | null
+  showsOpera: boolean
 }
 
 import WEEKS from './mocks/data/weeks'
@@ -41,7 +42,8 @@ class App extends React.Component<Props, State> {
       weeks: WEEKS,
       currentRehearsal: null,
       addRehearsal: null,
-      editRehearsal: null
+      editRehearsal: null,
+      showsOpera: true,
     }
   }
 
@@ -197,8 +199,11 @@ class App extends React.Component<Props, State> {
   }
 
   content = (): JSX.Element => {
-    
-    if (this.state.editRehearsal !== null) {
+    if (this.state.showsOpera) {
+      return (
+        <div>'Opera'</div>
+      )
+    } else if (this.state.editRehearsal !== null) {
       return (
         <EditRehearsalComponent 
           {...this.state.editRehearsal}
@@ -252,6 +257,9 @@ class App extends React.Component<Props, State> {
   }
 
   getMenuTitle = (): string => {
+    if (this.state.showsOpera) {
+      return 'Opera'
+    }
     const { selectedDayId, weeks, selectedWeekId } = this.state
     const week = weeks[selectedWeekId]
     let title: string

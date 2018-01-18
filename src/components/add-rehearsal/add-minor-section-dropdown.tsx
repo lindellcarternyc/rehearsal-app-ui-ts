@@ -48,7 +48,7 @@ class AddMinorSectionDropdown extends React.Component<AddMinorSectionDropdownPro
     const { minorSections } = majorSection
 
     const isDefaultSelected = selectedMaterial.filter(item => {
-      return item.match(/^Run /) !== null
+      return item === 'Run ' + majorSection.title
     }).length > 0
     if (!isDefaultSelected) {
       options.push(this.getDefaultOption())

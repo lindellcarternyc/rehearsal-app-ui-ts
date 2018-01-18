@@ -3,9 +3,10 @@ import './App.css'
 import WeekViewComponent, { WeekViewComponentData, }  from './components/week-view/week-view-component'
 import DayViewComponent, {  } from './components/day-view/day-view-component'
 import RehearsalViewComponent from './components/rehearsal-view/rehearsal-view-component'
-import AddRehearsalComponent from './components/add-rehearsal/add-rehearsal-component'
-import EditRehearsalComponent from './components/edit-rehearsal/edit-rehearsal-component'
 import OperaViewComponent from './components/opera-view/opera-view-component'
+import AddEditRehearsalComponent, {
+  EditConfig, AddConfig
+} from './components/add-edit-rehearsal-component/add-edit-rehearsal-component'
 
 import RehearsalModel from './models/rehearsal-model'
 
@@ -207,23 +208,35 @@ class App extends React.Component<Props, State> {
         <OperaViewComponent opera={MockOpera} />
       )
     } else if (this.state.editRehearsal !== null) {
+      const config: EditConfig = {
+        mode: 'Edit',
+        rehearsal: this.state.editRehearsal.rehearsal,
+        rehearsalNum: this.state.editRehearsal.rehearsalNum,
+        editRehearsal: this.editRehearsal
+      }
       return (
-        <EditRehearsalComponent 
-          {...this.state.editRehearsal}
+        <AddEditRehearsalComponent 
+          opera={MockOpera}
+          date={this.state.editRehearsal.date}
           dismiss={this.dismissEditRehearsal}
-          editRehearsal={this.editRehearsal}
+          config={config}
         />
       )
     }
     const { selectedWeekId, selectedDayId } = this.state
     const week = this.state.weeks[selectedWeekId]
     if (this.state.addRehearsal) {
+      const config: AddConfig = {
+        mode: 'Add',
+        addRehearsal: this.addRehearsal,
+      }
       return (
-        <AddRehearsalComponent
+        // const config:
+        <AddEditRehearsalComponent
           date={this.state.addRehearsal.date}
           dismiss={this.dismissAddRehearsal}
-          addRehearsal={this.addRehearsal}
           opera={MockOpera}
+          config={config}
         />
       )
     } else if (this.state.currentRehearsal !== null) {

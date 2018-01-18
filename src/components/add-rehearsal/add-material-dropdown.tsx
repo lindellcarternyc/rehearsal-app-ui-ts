@@ -9,6 +9,7 @@ import OperaModel, { OperaMajorSection } from '../../models/opera-model'
 interface AddMaterialDropdownProps {
   opera: OperaModel
   addMaterial: (title: string) => void
+  selectedMaterial: string[]
 }
 interface Option {
   text: string
@@ -61,6 +62,7 @@ class AddMaterialDropdown extends React.Component<AddMaterialDropdownProps, AddM
           <AddMinorSectionDropdown 
             majorSection={filtered[0]}
             didSelect={this.selectMinorSection}
+            selectedMaterial={this.props.selectedMaterial}
           />
         )
       } else {

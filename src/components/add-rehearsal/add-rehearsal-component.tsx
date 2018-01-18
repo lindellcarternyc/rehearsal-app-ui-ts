@@ -128,7 +128,11 @@ class AddRehearsalComponent extends React.Component<AddRehearsalComponentProps, 
             </Form.Field>
           </Form.Group>
           <Form.Field>
-            <AddMaterialDropdown opera={opera} addMaterial={this.addMaterial}/>
+            <AddMaterialDropdown 
+              opera={opera} 
+              addMaterial={this.addMaterial}
+              selectedMaterial={this.state.material}
+            />
           </Form.Field>
           {this.state.material.length > 0 &&
             <MaterialListComponent 

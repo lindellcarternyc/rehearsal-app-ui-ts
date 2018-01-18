@@ -6,6 +6,7 @@ import { OperaMajorSection, OperaMinorSection } from '../../models/opera-model'
 
 interface AddMinorSectionDropdownProps {
   majorSection: OperaMajorSection
+  selectedMaterial: string[]
   didSelect: (title: string) => void
 }
 
@@ -16,7 +17,8 @@ interface Option {
 }
 
 class AddMinorSectionDropdown extends React.Component<AddMinorSectionDropdownProps, {}> {
-  getDefaultOption = (majorSection: OperaMajorSection): Option => {
+  getDefaultOption = (): Option => {
+    const { majorSection } = this.props
     const title = 'Run ' + majorSection.title
     return {
       text: title,
@@ -38,22 +40,38 @@ class AddMinorSectionDropdown extends React.Component<AddMinorSectionDropdownPro
     const title = data.value
     this.props.didSelect(title)
   }
+
+  filterOptions = (): Option[] => {
+    let options: Option[] = []
+
+    const { majorSection, selectedMaterial } = this.props
+    const { minorSections } = majorSection
+
+    const isDefaultSelected = selectedMaterial.filter(item => {
+      return item.match(/^Run /) !== null
+    }).length > 0
+    if (!isDefaultSelected) {
+      options.push(this.getDefaultOption())
+    }
+    const availableMinorSections = minorSections.filter(minorSection => {
+      return selectedMaterial.filter(item  => {
+        return item === majorSection.title + ': ' + minorSection.title
+      }).length === 0
+    })
+    availableMinorSections.forEach(minorSection => {
+      options.push(this.getMinorSectionOption(minorSection))
+    })
+    return options
+  }
   
   render() {
-    const { majorSection } = this.props
-    const { minorSections } = majorSection
-    
-    const defaultOption = this.getDefaultOption(majorSection)
-    const minorSectionOptions = minorSections.map(minorSection => {
-      return this.getMinorSectionOption(minorSection)
-    })
-    const options = [
-      defaultOption,
-      ...minorSectionOptions
-    ]
-    return (
-      <Dropdown options={options} selection onChange={this.handleChange}/>
-    )
+    const options = this.filterOptions()
+    if (options.length > 0) {
+      return (
+        <Dropdown options={options} selection onChange={this.handleChange}/>
+      )
+    }
+    return null
   }
 }
 

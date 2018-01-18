@@ -7,7 +7,7 @@ export interface OperaMinorSection {
   characters: Character[]
 }
 
-interface OperaMajorSection {
+export interface OperaMajorSection {
   title: string
   minorSections: OperaMinorSection[]
 }

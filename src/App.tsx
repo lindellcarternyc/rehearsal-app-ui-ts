@@ -46,7 +46,7 @@ class App extends React.Component<Props, State> {
       currentRehearsal: null,
       addRehearsal: null,
       editRehearsal: null,
-      showsOpera: true,
+      showsOpera: false
     }
   }
 
@@ -223,6 +223,7 @@ class App extends React.Component<Props, State> {
           date={this.state.addRehearsal.date}
           dismiss={this.dismissAddRehearsal}
           addRehearsal={this.addRehearsal}
+          opera={MockOpera}
         />
       )
     } else if (this.state.currentRehearsal !== null) {

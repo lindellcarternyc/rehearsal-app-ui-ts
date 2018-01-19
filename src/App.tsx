@@ -1,7 +1,7 @@
 import * as React from 'react'
 import './App.css'
 import WeekViewComponent, { WeekViewComponentData, }  from './components/week-view/week-view-component'
-import DayViewComponent, {  } from './components/day-view/day-view-component'
+import DayViewComponent, {  } from './components/day-view/day-view'
 import RehearsalViewComponent from './components/rehearsal-view/rehearsal-view-component'
 import OperaViewComponent from './components/opera-view/opera-view-component'
 import AddEditRehearsalComponent, {
@@ -253,11 +253,11 @@ class App extends React.Component<Props, State> {
         <DayViewComponent 
           {...day}
           rehearsals={rehearsals}
-          onClick={this.dismissDay}
           selectRehearsal={this.selectRehearsal}
           cancelRehearsal={this.cancelRehearsal}
           showAddRehearsal={this.showAddRehearsal}
           showEditRehearsal={this.showEditRehearsal}
+          dismiss={() => undefined}
         />
       )
     }
@@ -266,9 +266,6 @@ class App extends React.Component<Props, State> {
     return (
       <WeekViewComponent 
         days={days}
-        previous={this.previous}
-        next={this.next}
-        selectDay={this.selectDay}
       />
     )
   }

@@ -1,20 +1,20 @@
 import * as React from 'react'
 
 import { Message, Button, List } from 'semantic-ui-react'
-import PageComponent from '../page-component/page-component'
+import Page from '../page/page'
 
 import RehearsalModel from '../../models/rehearsal-model'
-export interface DayViewComponentProps {
+export interface DayViewProps {
   date: string
   rehearsals: RehearsalModel[]
-  onClick: () => void
-  selectRehearsal: (rehearsalNum: number) => void
-  cancelRehearsal: (rehearsalNum: number) => void
-  showEditRehearsal: (rehearsalNum: number) => void
-  showAddRehearsal: (date: string) => void
+  dismiss: () => void
+  selectRehearsal?: (rehearsalNum: number) => void
+  cancelRehearsal?: (rehearsalNum: number) => void
+  showEditRehearsal?: (rehearsalNum: number) => void
+  showAddRehearsal?: (date: string) => void
 }
 
-const DayViewComponent = (props: DayViewComponentProps): JSX.Element => {
+const DayView = (props: DayViewProps): JSX.Element => {
   const rehearsalComponents = props.rehearsals.map((rehearsal, idx) => {
 
     const handleClick = (evt: React.SyntheticEvent<HTMLElement>) => {
@@ -23,12 +23,13 @@ const DayViewComponent = (props: DayViewComponentProps): JSX.Element => {
 
       if (evt.currentTarget.nodeName === 'BUTTON') {
         if (evt.currentTarget.id === 'edit') {
-          props.showEditRehearsal(idx)
+          // if (props.showEditRehearsal)
+          props.showEditRehearsal!(idx)
         } else {
-          props.cancelRehearsal(idx)
+          props.cancelRehearsal!(idx)
         }
       } else {
-        props.selectRehearsal(idx)
+        props.selectRehearsal!(idx)
       }
     }
     const material = rehearsal.material.map(item => {
@@ -48,14 +49,22 @@ const DayViewComponent = (props: DayViewComponentProps): JSX.Element => {
       </Message>
     )
   })
+  const numRehearsals = rehearsalComponents.length
+  let subtitle: string
+  if (numRehearsals === 0) {
+    subtitle = 'No rehearsals'
+  } else if (numRehearsals === 1) {
+    subtitle = '1 rehearsal'
+  } else {
+    subtitle = `${numRehearsals} rehearsals`
+  }
   return (
-    <PageComponent title={props.date}>
-        <Button content='Back to week' onClick={props.onClick}/>
-        <Button content='Add Rehearsal' onClick={() => {props.showAddRehearsal(props.date)}}/>
+    <Page title={props.date} subtitle={subtitle}>
+        <Button content='Back to week' onClick={props.dismiss}/>
+        <Button content='Add Rehearsal' onClick={() => {props.showAddRehearsal!(props.date)}}/>
         {props.rehearsals.length > 0 && rehearsalComponents}
-        {props.rehearsals.length === 0 && <p style={{paddingTop: '1rem'}}>No Rehearsals</p>}
-    </PageComponent>
+    </Page>
   )
 }
 
-export default DayViewComponent
+export default DayView

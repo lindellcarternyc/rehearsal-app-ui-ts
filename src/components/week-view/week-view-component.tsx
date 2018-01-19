@@ -1,8 +1,8 @@
 import * as React from 'react'
 
-import PageComponent from '../page-component/page-component'
+import Page from '../page/page'
 
-import WeekViewBar, { } from './week-view-bar/week-view-bar'
+// import WeekViewBar, { } from './week-view-bar/week-view-bar'
 import WeekViewList from './week-view-list/week-view-list'
 
 import RehearsalModel from '../../models/rehearsal-model'
@@ -15,9 +15,9 @@ export interface WeekViewComponentData {
 }
 
 export interface WeekViewComponentProps extends WeekViewComponentData {
-  previous: () => void
-  next: () => void
-  selectDay: (dayId: number) => void
+  previous?: () => void
+  next?: () => void
+  selectDay?: (dayId: number) => void
 }
 
 const EMPTY_WEEK_VIEW_LIST_STYLES = {
@@ -43,17 +43,24 @@ const EmptyWeekViewList = (props: {start: string, end: string}) => {
   )
 }
 
-export const WeekViewComponent = (props: WeekViewComponentProps): JSX.Element => {
+interface WeekViewProps {
+  days: {
+    date: string
+    rehearsals?: RehearsalModel[]
+  }[]
+}
+
+export const WeekViewComponent = (props: WeekViewProps): JSX.Element => {
   const { days } = props
-  const barDays = days.map((day, idx) => {
-    const dayName = day.date.charAt(0)
-    const dayNumber = day.date.split(' ')[2]
-    const hasRehearsals = day.rehearsals !== undefined && day.rehearsals.length > 0
-    const onClick = () => {
-      return
-    }
-    return { dayName, dayNumber, hasRehearsals, onClick }
-  })
+  // const barDays = days.map((day, idx) => {
+  //   const dayName = day.date.charAt(0)
+  //   const dayNumber = day.date.split(' ')[2]
+  //   const hasRehearsals = day.rehearsals !== undefined && day.rehearsals.length > 0
+  //   const onClick = () => {
+  //     return
+  //   }
+  //   return { dayName, dayNumber, hasRehearsals, onClick }
+  // })
 
   const numRehearsalDays = days.filter(
     day => day.rehearsals !== undefined
@@ -61,17 +68,9 @@ export const WeekViewComponent = (props: WeekViewComponentProps): JSX.Element =>
   
   return (
     <div>
-      <PageComponent
+      <Page
         title='Week View' 
-        menuBar={(
-          <WeekViewBar 
-            days={barDays} 
-            previous={props.previous}
-            next={props.next}
-            selectDay={props.selectDay}
-            marginTop='2.75rem'
-          />
-        )}
+        // menuBar={}
       >
         {numRehearsalDays === 0 ? 
           ( 
@@ -83,7 +82,7 @@ export const WeekViewComponent = (props: WeekViewComponentProps): JSX.Element =>
             <WeekViewList days={days}/>
           )
         }
-      </PageComponent>
+      </Page>
     </div>
   )
 }

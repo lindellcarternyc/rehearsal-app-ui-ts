@@ -2,14 +2,14 @@ import * as React from 'react'
 import { Container } from 'semantic-ui-react'
 import { Header } from 'semantic-ui-react'
 
-interface PageComponentProps {
+interface PageProps {
   children?: React.ReactNode
   title?: string
   subtitle?: string
   menuBar?: JSX.Element
 }
 
-const PageComponent = (props: PageComponentProps) => {
+const Page = (props: PageProps) => {
   const containerMarginTop = props.menuBar !== undefined ?
     '10rem' : '3.5rem'
   return (
@@ -28,4 +28,4 @@ const PageComponent = (props: PageComponentProps) => {
   )
 }
 
-export default PageComponent
+export default Page

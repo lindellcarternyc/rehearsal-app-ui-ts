@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import PageComponent from '../page-component/page-component'
+import Page from '../page/page'
 
 import OperaModel from '../../models/opera-model'
 
@@ -22,9 +22,9 @@ const OperaViewComponent = (props: Props): JSX.Element => {
     )
   })
   return (
-    <PageComponent title={opera.title}>
+    <Page title={opera.title}>
       {majorSections}
-    </PageComponent>
+    </Page>
   )
 }
 

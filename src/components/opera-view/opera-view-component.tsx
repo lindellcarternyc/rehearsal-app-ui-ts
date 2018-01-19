@@ -22,9 +22,10 @@ const OperaViewComponent = (props: Props): JSX.Element => {
     )
   })
   return (
-    <PageComponent title={opera.title}>
-      {majorSections}
-    </PageComponent>
+    <PageComponent 
+      title={opera.title}
+      content={majorSections}
+    />
   )
 }
 

@@ -40,7 +40,6 @@ const DayViewComponent = (props: DayViewComponentProps): JSX.Element => {
     return (
       <Message key={rehearsal.time} onClick={handleClick}>
         <Message.Header content={rehearsal.time} />
-        {/* <p style={{paddingTop: '1rem'}}>{rehearsal.material}</p> */}
         <List bulleted>
           {material}
         </List>
@@ -49,13 +48,22 @@ const DayViewComponent = (props: DayViewComponentProps): JSX.Element => {
       </Message>
     )
   })
+
+  const content = () => {
+    return (
+      <div>
+        <Button content='Back to week' onClick={props.onClick}/>
+        <Button content='Add Rehearsal' onClick={() => {props.showAddRehearsal(props.date)}}/>
+        {props.rehearsals.length > 0 && rehearsalComponents}
+        {props.rehearsals.length === 0 && <p style={{paddingTop: '1rem'}}>No Rehearsals</p>}
+      </div>
+    )
+  }
   return (
-    <PageComponent title={props.date}>
-      <Button content='Back to week' onClick={props.onClick}/>
-      <Button content='Add Rehearsal' onClick={() => {props.showAddRehearsal(props.date)}}/>
-      {props.rehearsals.length > 0 && rehearsalComponents}
-      {props.rehearsals.length === 0 && <p style={{paddingTop: '1rem'}}>No Rehearsals</p>}
-    </PageComponent>
+    <PageComponent 
+      title={props.date}
+      content={content()}
+    />
   )
 }
 

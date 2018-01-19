@@ -1,12 +1,13 @@
 import * as React from 'react'
 
 import { 
-  Container, Header, Form, Button,
+  Form, Button,
 } from 'semantic-ui-react'
 
 import RehearsalModel from '../../models/rehearsal-model'
 import OperaModel from '../../models/opera-model'
 
+import PageComponent from '../page-component/page-component'
 import AddMaterialDropdownComponent from '../add-material-dropdown/add-material-dropdown-component'
 import SelectedMaterialListComponent from '../selected-material-list/selected-material-list-component'
 
@@ -155,9 +156,10 @@ class AddRehearsalComponent extends React.Component<Props, AddRehearsalComponent
     const title = config.mode + ' Rehearsal: ' + date
 
     return (
-      <Container>
-        <Header as='h2' content={title} />
-        <Form onSubmit={this.onSubmit}>
+      <PageComponent 
+        title={title}
+        content={(
+          <Form onSubmit={this.onSubmit}>
           <Form.Group widths='equal'>
             <Form.Field>
               <Form.Input
@@ -207,7 +209,8 @@ class AddRehearsalComponent extends React.Component<Props, AddRehearsalComponent
             onClick={this.props.dismiss}
           />
         </Form>
-      </Container>
+        )}
+      />
     )
   }
 }

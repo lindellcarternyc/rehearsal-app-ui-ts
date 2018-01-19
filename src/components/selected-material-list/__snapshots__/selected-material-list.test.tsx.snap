@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectedMaterialList should render a list with a removeCallback 1`] = `
+<div
+  style={
+    Object {
+      "marginBottom": "1rem",
+    }
+  }
+>
+  <h4
+    className="ui header"
+  >
+    Material
+  </h4>
+  <div
+    className="ui bulleted list"
+    role="list"
+  >
+    <div
+      className="item"
+      data-value={undefined}
+      onClick={[Function]}
+      role="listitem"
+    >
+      test 1
+       
+      <i
+        aria-hidden="true"
+        className="cancel icon"
+        onClick={[Function]}
+      />
+    </div>
+    <div
+      className="item"
+      data-value={undefined}
+      onClick={[Function]}
+      role="listitem"
+    >
+      test 2
+       
+      <i
+        aria-hidden="true"
+        className="cancel icon"
+        onClick={[Function]}
+      />
+    </div>
+    <div
+      className="item"
+      data-value={undefined}
+      onClick={[Function]}
+      role="listitem"
+    >
+      test 3
+       
+      <i
+        aria-hidden="true"
+        className="cancel icon"
+        onClick={[Function]}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SelectedMaterialList should render a list without a callback 1`] = `
+<div
+  style={
+    Object {
+      "marginBottom": "1rem",
+    }
+  }
+>
+  <h4
+    className="ui header"
+  >
+    Material
+  </h4>
+  <div
+    className="ui bulleted list"
+    role="list"
+  >
+    <div
+      className="item"
+      data-value={undefined}
+      onClick={[Function]}
+      role="listitem"
+    >
+      test 1
+    </div>
+    <div
+      className="item"
+      data-value={undefined}
+      onClick={[Function]}
+      role="listitem"
+    >
+      test 2
+    </div>
+    <div
+      className="item"
+      data-value={undefined}
+      onClick={[Function]}
+      role="listitem"
+    >
+      test 3
+    </div>
+  </div>
+</div>
+`;

@@ -6,12 +6,12 @@ import { List, Header } from 'semantic-ui-react'
 // components
 import SelectedMaterialListItem from './selected-material-list-item'
 
-interface SelectedMaterialListComponentProps {
+export interface SelectedMaterialListProps {
   material: string[]
   removeMaterial?: (id: number) => void
 }
 
-const SelectedMaterialListComponent = (props: SelectedMaterialListComponentProps) => {
+const SelectedMaterialList = (props: SelectedMaterialListProps) => {
   return (
     <div style={{marginBottom: '1rem'}}>
       <Header as='h4' content='Material' />
@@ -31,4 +31,4 @@ const SelectedMaterialListComponent = (props: SelectedMaterialListComponentProps
   )
 }
 
-export default SelectedMaterialListComponent
+export default SelectedMaterialList

@@ -3,19 +3,24 @@ import { List, Header, Icon } from 'semantic-ui-react'
 
 interface SelectedMaterialListComponentProps {
   material: string[]
-  removeMaterial: (id: number) => void
+  removeMaterial?: (id: number) => void
 }
 
 const SelectedMaterialListComponent = (props: SelectedMaterialListComponentProps) => {
   const items = props.material.map((item, idx) => {
-    const didClick = () => {
-      props.removeMaterial(idx)
+    
+    if (props.removeMaterial !== undefined) {
+      const { removeMaterial } = props
+      return (
+        <List.Item key={item}>
+          {item} <Icon name='cancel' onClick={() => {removeMaterial(idx)}} />
+        </List.Item>
+      )
+    } else {
+      return (
+        <List.Item key={item} content={item} />
+      )
     }
-    return (
-      <List.Item key={item}>
-        {item} <Icon name='cancel' onClick={didClick} />
-      </List.Item>
-    )
   })
   return (
     <div style={{marginBottom: '1rem'}}>

@@ -1,6 +1,8 @@
 import * as React from 'react'
 
-import { Container, Header, Button } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react'
+import PageComponent from '../page-component/page-component'
+import SelectedMaterialListComponent from '../selected-material-list/selected-material-list-component'
 
 import RehearsalModel from '../../models/rehearsal-model'
 
@@ -13,16 +15,18 @@ export interface RehearsalViewComponentProps {
 const RehearsalViewComponent = (props: RehearsalViewComponentProps) => {
   const { date, rehearsal } = props
   return (
-    <Container text>
-      <Header as='h2'>
+    <PageComponent title={date} subtitle={rehearsal.time}>
+      {/* <Header as='h2'>
         {date}
         <Header.Subheader content={rehearsal.time}/>
-      </Header>
+      </Header> */}
+      <SelectedMaterialListComponent
+        material={rehearsal.material}
+      />
       <Button onClick={props.dismissRehearsal}>
         Back to Day
       </Button>
-      <p style={{marginTop: '1rem'}}>{rehearsal.material}</p>
-    </Container>
+    </PageComponent>
   )
 }
 

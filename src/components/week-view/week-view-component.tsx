@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Container } from 'semantic-ui-react'
+import PageComponent from '../page-component/page-component'
 
 import WeekViewBar, { } from './week-view-bar/week-view-bar'
 import WeekViewList from './week-view-list/week-view-list'
@@ -58,25 +58,43 @@ export const WeekViewComponent = (props: WeekViewComponentProps): JSX.Element =>
   const numRehearsalDays = days.filter(
     day => day.rehearsals !== undefined
   ).length
-  return (
-    <div>
+
+  const getContent = (): JSX.Element | null => {
+    if (numRehearsalDays === 0) {
+      return (
+        <EmptyWeekViewList 
+          start={days[0].date}
+          end={days[1].date}
+        />
+      )
+    } else if (numRehearsalDays > 0) {
+      return (
+        <WeekViewList days={days}/>
+      )
+    } else {
+      return null
+    }
+  }
+
+  const weekViewBar = (): JSX.Element => {
+
+    return (
       <WeekViewBar 
         days={barDays} 
         previous={props.previous}
         next={props.next}
         selectDay={props.selectDay}
+        marginTop='3rem'
       />
-      <Container style={{paddingTop: '9rem'}} text>
-        {numRehearsalDays > 0 && 
-          <WeekViewList days={days}/>
-        }
-        {numRehearsalDays === 0 &&
-          <EmptyWeekViewList 
-            start={days[0].date} 
-            end={days[6].date} 
-          />
-        }
-      </Container>
+    )
+  }
+  return (
+    <div>
+      <PageComponent
+        content={getContent()}
+        menuBar={weekViewBar()}
+        title='Week View'
+      />
     </div>
   )
 }

@@ -1,10 +1,6 @@
 import * as React from 'react'
 
-import { Container, Header } from 'semantic-ui-react'
-
-const ContainerStyles = {
-  marginTop: '3.5rem'
-}
+import PageComponent from '../page-component/page-component'
 
 import OperaModel from '../../models/opera-model'
 
@@ -26,10 +22,9 @@ const OperaViewComponent = (props: Props): JSX.Element => {
     )
   })
   return (
-    <Container text style={ContainerStyles}>
-      <Header as='h2' content={opera.title} />
+    <PageComponent title={opera.title}>
       {majorSections}
-    </Container>
+    </PageComponent>
   )
 }
 

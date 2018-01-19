@@ -1,6 +1,7 @@
 import * as React from 'react'
 
-import { Container, Header, Message, Button, List } from 'semantic-ui-react'
+import { Message, Button, List } from 'semantic-ui-react'
+import PageComponent from '../page-component/page-component'
 
 import RehearsalModel from '../../models/rehearsal-model'
 export interface DayViewComponentProps {
@@ -49,13 +50,12 @@ const DayViewComponent = (props: DayViewComponentProps): JSX.Element => {
     )
   })
   return (
-    <Container>
-      <Header as='h2' content={props.date} />
+    <PageComponent title={props.date}>
       <Button content='Back to week' onClick={props.onClick}/>
       <Button content='Add Rehearsal' onClick={() => {props.showAddRehearsal(props.date)}}/>
       {props.rehearsals.length > 0 && rehearsalComponents}
       {props.rehearsals.length === 0 && <p style={{paddingTop: '1rem'}}>No Rehearsals</p>}
-    </Container>
+    </PageComponent>
   )
 }
 

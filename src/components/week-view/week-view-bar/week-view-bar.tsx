@@ -8,9 +8,15 @@ export interface WeekViewBarProps {
   previous: () => void
   next: () => void
   selectDay: (dayId: number) => void
+  marginTop?: string
 }
 
 const WeekViewBar = (props: WeekViewBarProps): JSX.Element => {
+  const style = props.marginTop !== undefined ?
+    {
+      marginTop: props.marginTop
+    } :
+    undefined
   const items = props.days.map((day, idx) => {
     const click = () => {
       props.selectDay(idx)
@@ -24,7 +30,7 @@ const WeekViewBar = (props: WeekViewBarProps): JSX.Element => {
     )
   })
   return (
-    <Menu fluid widths={9} fixed='top' style={{marginTop: '3rem'}}>
+    <Menu fluid widths={9} style={style} fixed='top'>
       <MenuItem 
         key='left' 
         icon='chevron left' 

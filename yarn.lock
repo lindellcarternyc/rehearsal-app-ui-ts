@@ -6,7 +6,13 @@
   version "0.22.7"
   resolved "https://registry.yarnpkg.com/@types/cheerio/-/cheerio-0.22.7.tgz#4a92eafedfb2b9f4437d3a4410006d81114c66ce"
 
-"@types/enzyme@^3.1.6":
+"@types/enzyme-adapter-react-16@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@types/enzyme-adapter-react-16/-/enzyme-adapter-react-16-1.0.1.tgz#cb93338ccf6cd1b8fdda91027c4ffe56583537b5"
+  dependencies:
+    "@types/enzyme" "*"
+
+"@types/enzyme@*", "@types/enzyme@^3.1.6":
   version "3.1.6"
   resolved "https://registry.yarnpkg.com/@types/enzyme/-/enzyme-3.1.6.tgz#5b6fd8c5d23d2e1d06eca528b54df81c3ee4cbbf"
   dependencies:

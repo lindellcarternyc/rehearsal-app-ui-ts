@@ -3,7 +3,7 @@ import * as React from 'react'
 // External Components
 import { ListItem, Icon } from 'semantic-ui-react'
 
-interface SelectedMaterialListItemProps {
+export interface SelectedMaterialListItemProps {
   material: string
   id: number
   callback?: (id: number) => void

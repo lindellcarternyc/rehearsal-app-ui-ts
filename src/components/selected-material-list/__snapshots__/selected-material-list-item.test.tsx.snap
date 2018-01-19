@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectedMaterialListItem should render with a callback 1`] = `
+<div
+  className="item"
+  data-value={undefined}
+  onClick={[Function]}
+  role="listitem"
+>
+  test material
+   
+  <i
+    aria-hidden="true"
+    className="cancel icon"
+    onClick={[Function]}
+  />
+</div>
+`;
+
+exports[`SelectedMaterialListItem should render without a callback 1`] = `
+<div
+  className="item"
+  data-value={undefined}
+  onClick={[Function]}
+  role="listitem"
+>
+  test material
+</div>
+`;

@@ -2,35 +2,68 @@
 
 exports[`RehearsalViewComponent renders a date and time 1`] = `
 <div
-  className="ui text container"
+  style={
+    Object {
+      "marginTop": "3rem",
+    }
+  }
 >
-  <h2
-    className="ui header"
-  >
-    Tue, January 16
-    <div
-      className="sub header"
-    >
-      19:00 - 22:00
-    </div>
-  </h2>
-  <button
-    className="ui button"
-    disabled={undefined}
-    onClick={[Function]}
-    role="button"
-    tabIndex={undefined}
-  >
-    Back to Day
-  </button>
-  <p
+  <div
+    className="ui container"
     style={
       Object {
-        "marginTop": "1rem",
+        "marginBottom": "2rem",
+        "marginTop": "3rem",
       }
     }
   >
-    
-  </p>
+    <h2
+      className="ui header"
+    >
+      Tue, January 16
+      <div
+        className="sub header"
+      >
+        19:00 - 22:00
+      </div>
+    </h2>
+    <div>
+      <div
+        style={
+          Object {
+            "marginBottom": "1rem",
+          }
+        }
+      >
+        <h4
+          className="ui header"
+        >
+          Material
+        </h4>
+        <div
+          className="ui bulleted list"
+          role="list"
+        >
+          <div
+            className="item"
+            data-value={undefined}
+            onClick={[Function]}
+            role="listitem"
+          >
+            
+          </div>
+        </div>
+      </div>
+      <button
+        className="ui button"
+        disabled={undefined}
+        onClick={[Function]}
+        role="button"
+        tabIndex={undefined}
+      >
+        Back to Day
+      </button>
+    </div>
+  </div>
 </div>
 `;

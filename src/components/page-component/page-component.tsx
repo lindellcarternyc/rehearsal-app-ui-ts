@@ -4,6 +4,7 @@ import { Header } from 'semantic-ui-react'
 
 interface PageComponentProps {
   content?: React.ReactNode
+  // children
   title?: string
   subtitle?: string
   menuBar?: JSX.Element

@@ -13,20 +13,26 @@ export interface RehearsalViewComponentProps {
 }
 
 const RehearsalViewComponent = (props: RehearsalViewComponentProps) => {
-  const { date, rehearsal } = props
+  const { date, rehearsal, dismissRehearsal } = props
+  const content = () => {
+    return (
+      <div>
+        <SelectedMaterialListComponent
+          material={rehearsal.material}
+        />
+        <Button onClick={dismissRehearsal}>
+          Back to Day
+        </Button>
+      </div>
+    )
+  }
+  
   return (
-    <PageComponent title={date} subtitle={rehearsal.time}>
-      {/* <Header as='h2'>
-        {date}
-        <Header.Subheader content={rehearsal.time}/>
-      </Header> */}
-      <SelectedMaterialListComponent
-        material={rehearsal.material}
-      />
-      <Button onClick={props.dismissRehearsal}>
-        Back to Day
-      </Button>
-    </PageComponent>
+    <PageComponent 
+      title={date} 
+      subtitle={rehearsal.time}
+      content={content()}
+    />
   )
 }
 

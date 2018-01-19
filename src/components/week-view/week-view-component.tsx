@@ -58,43 +58,32 @@ export const WeekViewComponent = (props: WeekViewComponentProps): JSX.Element =>
   const numRehearsalDays = days.filter(
     day => day.rehearsals !== undefined
   ).length
-
-  const getContent = (): JSX.Element | null => {
-    if (numRehearsalDays === 0) {
-      return (
-        <EmptyWeekViewList 
-          start={days[0].date}
-          end={days[1].date}
-        />
-      )
-    } else if (numRehearsalDays > 0) {
-      return (
-        <WeekViewList days={days}/>
-      )
-    } else {
-      return null
-    }
-  }
-
-  const weekViewBar = (): JSX.Element => {
-
-    return (
-      <WeekViewBar 
-        days={barDays} 
-        previous={props.previous}
-        next={props.next}
-        selectDay={props.selectDay}
-        marginTop='3rem'
-      />
-    )
-  }
+  
   return (
     <div>
       <PageComponent
-        content={getContent()}
-        menuBar={weekViewBar()}
-        title='Week View'
-      />
+        title='Week View' 
+        menuBar={(
+          <WeekViewBar 
+            days={barDays} 
+            previous={props.previous}
+            next={props.next}
+            selectDay={props.selectDay}
+            marginTop='2.75rem'
+          />
+        )}
+      >
+        {numRehearsalDays === 0 ? 
+          ( 
+            <EmptyWeekViewList 
+              start={days[0].date}
+              end={days[1].date}
+            />
+          ) : (
+            <WeekViewList days={days}/>
+          )
+        }
+      </PageComponent>
     </div>
   )
 }

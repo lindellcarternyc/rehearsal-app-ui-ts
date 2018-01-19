@@ -48,22 +48,13 @@ const DayViewComponent = (props: DayViewComponentProps): JSX.Element => {
       </Message>
     )
   })
-
-  const content = () => {
-    return (
-      <div>
+  return (
+    <PageComponent title={props.date}>
         <Button content='Back to week' onClick={props.onClick}/>
         <Button content='Add Rehearsal' onClick={() => {props.showAddRehearsal(props.date)}}/>
         {props.rehearsals.length > 0 && rehearsalComponents}
         {props.rehearsals.length === 0 && <p style={{paddingTop: '1rem'}}>No Rehearsals</p>}
-      </div>
-    )
-  }
-  return (
-    <PageComponent 
-      title={props.date}
-      content={content()}
-    />
+    </PageComponent>
   )
 }
 

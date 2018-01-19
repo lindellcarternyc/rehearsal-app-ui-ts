@@ -9,7 +9,7 @@ import OperaModel from '../../models/opera-model'
 
 import PageComponent from '../page-component/page-component'
 import AddMaterialDropdownComponent from '../add-material-dropdown/add-material-dropdown-component'
-import SelectedMaterialListComponent from '../selected-material-list/selected-material-list-component'
+import SelectedMaterialList from '../selected-material-list/selected-material-list'
 
 interface Config {
   mode: 'Add' | 'Edit'
@@ -156,9 +156,7 @@ class AddRehearsalComponent extends React.Component<Props, AddRehearsalComponent
     const title = config.mode + ' Rehearsal: ' + date
 
     return (
-      <PageComponent 
-        title={title}
-        content={(
+      <PageComponent title={title}>
           <Form onSubmit={this.onSubmit}>
           <Form.Group widths='equal'>
             <Form.Field>
@@ -192,7 +190,7 @@ class AddRehearsalComponent extends React.Component<Props, AddRehearsalComponent
             />
           </Form.Field>
           {this.state.material.length > 0 &&
-            <SelectedMaterialListComponent 
+            <SelectedMaterialList 
               material={this.state.material}
               removeMaterial={this.removeMaterial}
             />
@@ -209,8 +207,7 @@ class AddRehearsalComponent extends React.Component<Props, AddRehearsalComponent
             onClick={this.props.dismiss}
           />
         </Form>
-        )}
-      />
+      </PageComponent>
     )
   }
 }

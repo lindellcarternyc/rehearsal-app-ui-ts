@@ -3,8 +3,7 @@ import { Container } from 'semantic-ui-react'
 import { Header } from 'semantic-ui-react'
 
 interface PageComponentProps {
-  content?: React.ReactNode
-  // children
+  children?: React.ReactNode
   title?: string
   subtitle?: string
   menuBar?: JSX.Element
@@ -12,14 +11,10 @@ interface PageComponentProps {
 
 const PageComponent = (props: PageComponentProps) => {
   const containerMarginTop = props.menuBar !== undefined ?
-    '13rem' : '3rem'
+    '10rem' : '3.5rem'
   return (
-    <div style={{marginTop: '3rem'}}>
-      {props.menuBar && 
-        (
-          props.menuBar
-        )
-      }
+    <div >
+      {props.menuBar}
       <Container style={{marginTop: containerMarginTop, marginBottom: '2rem'}}>
         {props.title &&
           <Header as='h2'>
@@ -27,7 +22,7 @@ const PageComponent = (props: PageComponentProps) => {
             <Header.Subheader content={props.subtitle} />
           </Header>
         }
-        {props.content}
+        {props.children}
       </Container>
     </div>
   )

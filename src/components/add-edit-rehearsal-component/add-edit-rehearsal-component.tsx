@@ -7,7 +7,7 @@ import {
 import RehearsalModel from '../../models/rehearsal-model'
 import OperaModel from '../../models/opera-model'
 
-import PageComponent from '../page-component/page-component'
+import Page from '../page/page'
 import AddMaterialDropdownComponent from '../add-material-dropdown/add-material-dropdown-component'
 import SelectedMaterialList from '../selected-material-list/selected-material-list'
 
@@ -32,14 +32,14 @@ interface Props {
   config: AddConfig | EditConfig
 }
 
-interface AddRehearsalComponentState {
+interface AddEditRehearsalViewState {
   startTime: string
   endTime: string
   material: string[]
   majorSectionID: number | null
 }
 
-class AddRehearsalComponent extends React.Component<Props, AddRehearsalComponentState> {
+class AddEditRehearsalView extends React.Component<Props, AddEditRehearsalViewState> {
   constructor(props: Props) {
     super(props)
 
@@ -98,15 +98,24 @@ class AddRehearsalComponent extends React.Component<Props, AddRehearsalComponent
     const config = this.props.config as EditConfig
     const { rehearsalNum, editRehearsal } = config
     const { material } = this.state
-    const time = this.formatTime()
-    editRehearsal(rehearsalNum, {time, material})
+    const newRehearsal: RehearsalModel = {
+      time: this.formatTime(),
+      material
+    }
+    editRehearsal(rehearsalNum, newRehearsal)
   }
 
   submitAdd = () => {
     const config = this.props.config as AddConfig
-    const time = this.formatTime()
-    const { material } = this.state
-    config.addRehearsal({time, material})
+    const { startTime, endTime, material } = this.state
+    if (startTime !== '' && endTime !== '' && material.length > 0) {
+      const time = this.formatTime()
+      const rehearsal: RehearsalModel = {
+        time,
+        material
+      }
+      config.addRehearsal(rehearsal)
+    }
   }
 
   onSubmit = () => {
@@ -156,7 +165,7 @@ class AddRehearsalComponent extends React.Component<Props, AddRehearsalComponent
     const title = config.mode + ' Rehearsal: ' + date
 
     return (
-      <PageComponent title={title}>
+      <Page title={title}>
           <Form onSubmit={this.onSubmit}>
           <Form.Group widths='equal'>
             <Form.Field>
@@ -207,9 +216,9 @@ class AddRehearsalComponent extends React.Component<Props, AddRehearsalComponent
             onClick={this.props.dismiss}
           />
         </Form>
-      </PageComponent>
+      </Page>
     )
   }
 }
 
-export default AddRehearsalComponent
+export default AddEditRehearsalView

@@ -8,10 +8,10 @@ export interface DayViewProps {
   date: string
   rehearsals: RehearsalModel[]
   dismiss: () => void
-  selectRehearsal?: (rehearsalNum: number) => void
+  selectRehearsal: (rehearsalNum: number) => void
   cancelRehearsal?: (rehearsalNum: number) => void
-  showEditRehearsal?: (rehearsalNum: number) => void
-  showAddRehearsal?: (date: string) => void
+  showEditRehearsal: (rehearsalNum: number) => void
+  showAddRehearsal: (date: string) => void
 }
 
 const DayView = (props: DayViewProps): JSX.Element => {
@@ -23,8 +23,7 @@ const DayView = (props: DayViewProps): JSX.Element => {
 
       if (evt.currentTarget.nodeName === 'BUTTON') {
         if (evt.currentTarget.id === 'edit') {
-          // if (props.showEditRehearsal)
-          props.showEditRehearsal!(idx)
+          props.showEditRehearsal(idx)
         } else {
           props.cancelRehearsal!(idx)
         }

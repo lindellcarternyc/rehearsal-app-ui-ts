@@ -1,7 +1,3 @@
-// import * as React from 'react'
-
-// import Page from '../page/page'
-
 interface PagesProps {
   currentPage: string
   components: {[name: string]: JSX.Element}

@@ -2,13 +2,13 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import * as renderer from 'react-test-renderer'
 
-import RehearsalViewComponent, { RehearsalViewComponentProps } from './rehearsal-view-component'
+import RehearsalView, { RehearsalViewProps } from './rehearsal-view-component'
 
 const dismissRehearsal = jest.fn()
 
-describe('RehearsalViewComponent', () => {
+describe('RehearsalView', () => {
   it('renders without crashing', () => {
-    const props: RehearsalViewComponentProps = {
+    const props: RehearsalViewProps = {
       date: 'Tue, January 16',
       rehearsal: {
         time: '19:00 - 22:00',
@@ -18,13 +18,13 @@ describe('RehearsalViewComponent', () => {
     }
     const div = document.createElement('div')
     ReactDOM.render(
-      <RehearsalViewComponent {...props} />,
+      <RehearsalView {...props} />,
       div
     )
   })
 
   it('renders a date and time', () => {
-    const props: RehearsalViewComponentProps = {
+    const props: RehearsalViewProps = {
       date: 'Tue, January 16',
       rehearsal: {
         time: '19:00 - 22:00',
@@ -33,7 +33,7 @@ describe('RehearsalViewComponent', () => {
       dismissRehearsal
     }
     const tree = renderer.create(
-      <RehearsalViewComponent {...props} />
+      <RehearsalView {...props} />
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })

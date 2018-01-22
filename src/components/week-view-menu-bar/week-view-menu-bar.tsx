@@ -13,15 +13,19 @@ interface WeekViewMenuBarProps {
   }[]
   getPreviousWeek: () => void
   getNextWeek: () => void
+  selectDay: (dayNumber: number) => void
 }
 const WeekViewMenuBar = (props: WeekViewMenuBarProps): JSX.Element => {
   return (
     <Menu fixed='top' fluid  widths={9} style={{marginTop: '3.5rem'}}>
       <Menu.Item icon='chevron left' onClick={props.getPreviousWeek}/>
       {props.days.map((day, idx) => {
+        const didClick = () => {
+          props.selectDay(idx)
+        }
         return (
-          <Menu.Item key={day.date + idx.toString(10)}>
-            <WeekViewMenuBarItem day={day}/>
+          <Menu.Item key={day.date + idx.toString(10)} onClick={didClick}>
+            <WeekViewMenuBarItem day={day} />
           </Menu.Item> 
         )
       })}

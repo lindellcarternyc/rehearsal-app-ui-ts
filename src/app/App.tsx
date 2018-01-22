@@ -93,7 +93,7 @@ class App extends React.Component<{}, State> {
           currentPage: CurrentPage.RehearsalView
         }
       )
-  }
+    }
   }
 
   dismissRehearsalView = () => {

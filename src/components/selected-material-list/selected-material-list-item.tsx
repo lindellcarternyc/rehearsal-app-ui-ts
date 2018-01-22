@@ -1,6 +1,4 @@
 import * as React from 'react'
-
-// External Components
 import { ListItem, Icon } from 'semantic-ui-react'
 
 export interface SelectedMaterialListItemProps {

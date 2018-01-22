@@ -1,19 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RehearsalViewComponent renders a date and time 1`] = `
-<div
-  style={
-    Object {
-      "marginTop": "3rem",
-    }
-  }
->
+exports[`RehearsalView renders a date and time 1`] = `
+<div>
   <div
     className="ui container"
     style={
       Object {
         "marginBottom": "2rem",
-        "marginTop": "3rem",
+        "marginTop": "3.5rem",
       }
     }
   >
@@ -27,43 +21,41 @@ exports[`RehearsalViewComponent renders a date and time 1`] = `
         19:00 - 22:00
       </div>
     </h2>
-    <div>
-      <div
-        style={
-          Object {
-            "marginBottom": "1rem",
-          }
+    <div
+      style={
+        Object {
+          "marginBottom": "1rem",
         }
+      }
+    >
+      <h4
+        className="ui header"
       >
-        <h4
-          className="ui header"
-        >
-          Material
-        </h4>
+        Material
+      </h4>
+      <div
+        className="ui bulleted list"
+        role="list"
+      >
         <div
-          className="ui bulleted list"
-          role="list"
+          className="item"
+          data-value={undefined}
+          onClick={[Function]}
+          role="listitem"
         >
-          <div
-            className="item"
-            data-value={undefined}
-            onClick={[Function]}
-            role="listitem"
-          >
-            
-          </div>
+          
         </div>
       </div>
-      <button
-        className="ui button"
-        disabled={undefined}
-        onClick={[Function]}
-        role="button"
-        tabIndex={undefined}
-      >
-        Back to Day
-      </button>
     </div>
+    <button
+      className="ui button"
+      disabled={undefined}
+      onClick={[Function]}
+      role="button"
+      tabIndex={undefined}
+    >
+      Back to Day
+    </button>
   </div>
 </div>
 `;

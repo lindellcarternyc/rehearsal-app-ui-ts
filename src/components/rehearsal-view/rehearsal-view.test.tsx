@@ -2,7 +2,7 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import * as renderer from 'react-test-renderer'
 
-import RehearsalView, { RehearsalViewProps } from './rehearsal-view-component'
+import RehearsalView, { RehearsalViewProps } from './rehearsal-view'
 
 const dismissRehearsal = jest.fn()
 

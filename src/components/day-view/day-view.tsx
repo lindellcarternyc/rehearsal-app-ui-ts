@@ -67,7 +67,7 @@ const DayView = (props: DayViewProps): JSX.Element => {
         <Button content='Back to week' onClick={props.dismiss}/>
         <Button content='Add Rehearsal' onClick={() => {props.showAddRehearsal!(day.date)}}/>
         {rehearsals.length > 0 &&
-          {rehearsalComponents}
+          rehearsalComponents
         }
     </Page>
   )

@@ -18,9 +18,9 @@ const RehearsalView = (props: RehearsalViewProps) => {
   return (
     <Page title={date} subtitle={rehearsal.time}>
       <SelectedMaterialList material={rehearsal.material}/>
-        <Button onClick={dismissRehearsal}>
-          Back to Day
-        </Button>
+      <Button onClick={dismissRehearsal}>
+        Back to Day
+      </Button>
     </Page>
   )
 }

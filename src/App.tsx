@@ -2,7 +2,7 @@ import * as React from 'react'
 import './App.css'
 import WeekViewComponent, { WeekViewComponentData, }  from './components/week-view/week-view-component'
 import DayViewComponent, {  } from './components/day-view/day-view'
-import RehearsalViewComponent from './components/rehearsal-view/rehearsal-view'
+import RehearsalViewComponent from './components/rehearsal-view/rehearsal-view-component'
 import OperaViewComponent from './components/opera-view/opera-view-component'
 import AddEditRehearsalComponent, {
   EditConfig, AddConfig

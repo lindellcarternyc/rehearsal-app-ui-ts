@@ -6,7 +6,7 @@ import WeekViewDayListItem from './week-view-day-list-item'
 
 import RehearsalModel from '../../models/rehearsal-model'
 
-export interface WeekViewDayListProps {
+interface WeekViewDayListProps {
   week: {
     days: {
       date: string

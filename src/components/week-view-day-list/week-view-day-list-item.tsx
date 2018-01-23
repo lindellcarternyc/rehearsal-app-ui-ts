@@ -4,7 +4,7 @@ import WeekViewDayListItemContent from './week-view-day-list-item-content'
 
 import RehearsalModel from '../../models/rehearsal-model'
 
-export interface WeekViewDayListItemProps {
+interface WeekViewDayListItemProps {
   day: {
     date: string
     rehearsals?: RehearsalModel[]

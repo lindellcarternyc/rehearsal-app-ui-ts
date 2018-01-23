@@ -9,7 +9,7 @@ import Pages from '../components/pages/pages'
 import OperaView from '../components/opera-view/opera-view-component'
 import DayView from '../components/day-view/day-view'
 import WeekView from '../components/week-view/week-view'
-import RehearsalView from '../components/rehearsal-view/rehearsal-view'
+import RehearsalView from '../components/rehearsal-view/rehearsal-view-component'
 import AddEditRehearsalView from '../components/add-edit-rehearsal-component/add-edit-rehearsal-component'
 
 // Data

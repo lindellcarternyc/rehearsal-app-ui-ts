@@ -6,7 +6,7 @@ import WeekViewMenuBarItem from './week-view-menu-bar-item'
 
 import RehearsalModel from '../../models/rehearsal-model'
 
-interface WeekViewMenuBarProps {
+export interface WeekViewMenuBarProps {
   days: {
     date: string,
     reheasals?: RehearsalModel[]

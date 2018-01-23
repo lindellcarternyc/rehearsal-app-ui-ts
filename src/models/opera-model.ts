@@ -1,10 +1,10 @@
-import Character from './character'
+import CharacterModel from './character-model'
 
 export interface OperaMinorSection {
   title: string
   start: string
   end: string
-  characters: Character[]
+  characters: CharacterModel[]
 }
 
 export interface OperaMajorSection {

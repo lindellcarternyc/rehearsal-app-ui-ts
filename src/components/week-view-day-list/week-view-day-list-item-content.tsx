@@ -3,7 +3,7 @@ import { List } from 'semantic-ui-react'
 
 import RehearsalModel from '../../models/rehearsal-model'
 
-interface WeekViewDayListItemContent {
+export interface WeekViewDayListItemContentProps {
   rehearsals: RehearsalModel[] | undefined
 }
 
@@ -13,7 +13,7 @@ const RehearsalTime = (props: {time: string}): JSX.Element => {
   )
 }
 
-const WeekViewDayListItemContent = (props: WeekViewDayListItemContent) => {
+const WeekViewDayListItemContent = (props: WeekViewDayListItemContentProps) => {
   if (props.rehearsals !== undefined && props.rehearsals.length > 0) {
     const rehearsalTimes = props.rehearsals.map(rehearsal => {
       return (

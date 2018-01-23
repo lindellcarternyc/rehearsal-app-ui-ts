@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WeekViewDayListItemContent renders with rehearsals 1`] = `
+<div
+  className="ui bulleted list"
+  role="list"
+>
+  <div
+    className="item"
+    data-value={undefined}
+    onClick={[Function]}
+    role="listitem"
+  >
+    19:00 - 21:00
+  </div>
+</div>
+`;
+
+exports[`WeekViewDayListItemContent renders without rehearsals 1`] = `
+<p
+  style={
+    Object {
+      "paddingLeft": "1rem",
+    }
+  }
+>
+  No Rehearsals Today
+</p>
+`;

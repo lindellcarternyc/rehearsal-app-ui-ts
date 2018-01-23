@@ -4,15 +4,10 @@ import Page from '../page/page'
 import WeekViewMenuBar from '../week-view-menu-bar/week-view-menu-bar'
 import WeekViewDayList from '../week-view-day-list/week-view-day-list'
 
-import RehearsalModel from '../../models/rehearsal-model'
+import WeekModel from '../../models/week-model'
 
 export interface WeekViewProps {
-  week: {
-    days: {
-      date: string
-      rehearsals?: RehearsalModel[]
-    }[]
-  }
+  week: WeekModel
   getPreviousWeek: () => void
   getNextWeek: () => void
   selectDay: (dayNumber: number) => void
@@ -23,7 +18,7 @@ const WeekView = (props: WeekViewProps) => {
     <Page 
       menuBar={(
         <WeekViewMenuBar 
-          days={props.week.days}
+          week={props.week}
           getPreviousWeek={props.getPreviousWeek}
           getNextWeek={props.getNextWeek}
           selectDay={props.selectDay}

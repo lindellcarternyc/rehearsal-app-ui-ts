@@ -2,13 +2,10 @@ import * as React from 'react'
 import { List } from 'semantic-ui-react'
 import WeekViewDayListItemContent from './week-view-day-list-item-content'
 
-import RehearsalModel from '../../models/rehearsal-model'
+import DayModel from '../../models/day-model'
 
 interface WeekViewDayListItemProps {
-  day: {
-    date: string
-    rehearsals?: RehearsalModel[]
-  }
+  day: DayModel
   didClick: () => void
 }
 const WeekViewDayListItem = (props: WeekViewDayListItemProps) => {

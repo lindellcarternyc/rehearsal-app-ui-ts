@@ -4,15 +4,10 @@ import { List, Header, Button } from 'semantic-ui-react'
 
 import WeekViewDayListItem from './week-view-day-list-item'
 
-import RehearsalModel from '../../models/rehearsal-model'
+import WeekModel from '../../models/week-model'
 
 interface WeekViewDayListProps {
-  week: {
-    days: {
-      date: string
-      rehearsals?: RehearsalModel[]
-    }[]
-  }
+  week: WeekModel
   selectDay: (dayNumber: number) => void
   showAddRehearsal: () => void
 }

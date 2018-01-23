@@ -3,19 +3,24 @@ import * as React from 'react'
 import { Message, Button, List } from 'semantic-ui-react'
 import Page from '../page/page'
 
-import RehearsalModel from '../../models/rehearsal-model'
+import DayModel from '../../models/day-model'
+
 export interface DayViewProps {
-  date: string
-  rehearsals: RehearsalModel[]
+  // models
+  day: DayModel
+
+  // callbacks 
   dismiss: () => void
   selectRehearsal: (rehearsalNum: number) => void
-  cancelRehearsal?: (rehearsalNum: number) => void
+  cancelRehearsal: (rehearsalNum: number) => void
   showEditRehearsal: (rehearsalNum: number) => void
   showAddRehearsal: (date: string) => void
 }
 
 const DayView = (props: DayViewProps): JSX.Element => {
-  const rehearsalComponents = props.rehearsals.map((rehearsal, idx) => {
+  const { day } = props
+  const rehearsals = day.rehearsals || []
+  const rehearsalComponents = rehearsals.map((rehearsal, idx) => {
 
     const handleClick = (evt: React.SyntheticEvent<HTMLElement>) => {
       evt.preventDefault()
@@ -25,10 +30,10 @@ const DayView = (props: DayViewProps): JSX.Element => {
         if (evt.currentTarget.id === 'edit') {
           props.showEditRehearsal(idx)
         } else {
-          props.cancelRehearsal!(idx)
+          props.cancelRehearsal(idx)
         }
       } else {
-        props.selectRehearsal!(idx)
+        props.selectRehearsal(idx)
       }
     }
     const material = rehearsal.material.map(item => {
@@ -58,10 +63,12 @@ const DayView = (props: DayViewProps): JSX.Element => {
     subtitle = `${numRehearsals} rehearsals`
   }
   return (
-    <Page title={props.date} subtitle={subtitle}>
+    <Page title={day.date} subtitle={subtitle}>
         <Button content='Back to week' onClick={props.dismiss}/>
-        <Button content='Add Rehearsal' onClick={() => {props.showAddRehearsal!(props.date)}}/>
-        {props.rehearsals.length > 0 && rehearsalComponents}
+        <Button content='Add Rehearsal' onClick={() => {props.showAddRehearsal!(day.date)}}/>
+        {rehearsals.length > 0 &&
+          {rehearsalComponents}
+        }
     </Page>
   )
 }

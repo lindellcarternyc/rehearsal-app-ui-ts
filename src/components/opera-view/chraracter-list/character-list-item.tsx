@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { ListItem } from 'semantic-ui-react'
 
-import Character from '../../../models/character'
+import CharacterModel from '../../../models/character-model'
 
-const CharacterListItem = (props: {character: Character}): JSX.Element => {
+const CharacterListItem = (props: {character: CharacterModel}): JSX.Element => {
   return (
     <ListItem content={props.character.name} />
   )

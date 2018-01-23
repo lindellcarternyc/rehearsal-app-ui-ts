@@ -1,4 +1,4 @@
-import { WeekViewComponentData } from '../../components/week-view/week-view-component'
+import WeekModel from '../../models/week-model'
 
 import MockOpera from './opera'
 const [
@@ -7,7 +7,7 @@ const [
   ACT_III
 ] = MockOpera.majorSections
 
-const WEEKS: WeekViewComponentData[] = [
+const WEEKS: WeekModel[] = [
   {
     days: [
       {

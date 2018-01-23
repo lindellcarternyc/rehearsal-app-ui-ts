@@ -17,6 +17,8 @@ import MockOpera from '../mocks/data/opera'
 import WEEKS from '../mocks/data/weeks'
 
 // Models
+import WeekModel from '../models/week-model'
+import DayModel from '../models/day-model'
 import RehearsalModel from '../models/rehearsal-model'
 
 enum CurrentPage {
@@ -40,19 +42,11 @@ enum CurrentPageTitle {
 interface State {
   currentPage: CurrentPage
   weekId: number
-  selectedDay: {
-    date: string
-    rehearsals?: RehearsalModel[]
-  }
+  selectedDay: DayModel
   selectedDayNum: number
   selectedRehearsal: RehearsalModel | undefined
   selectedRehearsalNum: number | undefined
-  weeks: {
-    days: {
-      date: string
-      rehearsals?: RehearsalModel[]
-    }[]
-  }[]
+  weeks: WeekModel[]
 }
 
 class App extends React.Component<{}, State> {
@@ -214,9 +208,8 @@ class App extends React.Component<{}, State> {
           dayView: (
             () => {
               return (
-                <DayView 
-                  date={selectedDay!.date}
-                  rehearsals={selectedDay!.rehearsals || []}
+                <DayView
+                  day={selectedDay}
                   dismiss={this.dismissDayView}
                   selectRehearsal={this.selectRehearsal}
                   cancelRehearsal={this.cancelRehearsal}
